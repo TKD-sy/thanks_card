@@ -1,0 +1,59 @@
+@(choiceList: List[t_card])
+
+@common("代表的な事例選択画面"){
+	<style type="text/css">
+	.wrapper{
+		width:1022px;
+	}
+	.table{
+		float:left;
+		margin: 0 10px 0 0 ;
+	}
+
+	.left{
+		text-align:right;
+	}
+	.
+	</style>
+	<h1>体表的な事例選択画面</h1>
+	<div class="wrapper">
+	<form method="POST" action="/choice_re">
+		@if(choiceList.isEmpty()) {
+	       データは一件もありません
+	    } else {
+	        @for(choice <- choiceList) {
+				<table class="table">
+					<tbody>
+						<tr>
+							<td>送り主：</td>
+							<td colspan="2">@choice.sousin_id</td>
+						</tr>
+						<tr>
+							<td>日付：</td>
+							<td colspan="2">@choice.card_date</td>
+						</tr>
+						<tr>
+							<td>カテゴリ：</td>
+							<td colspan="2">@choice.category_id</td>
+						</tr>
+						<tr>
+							<td>ヘルプ内容：</td>
+							<td colspan="2">@choice.card_help</td>
+						</tr>
+						<tr>
+							<td>お礼のコメント：</td>
+							<td colspan="2">@choice.card_comment</td>
+						</tr>
+						<tr>
+							<td  colspan="3" class="left size"><input type="checkbox" name="name" value="１">事例の選択</td>
+						</tr>
+					</tbody>
+				</table>
+	        }
+
+	    }
+	    	<input type="submit" value="確認">
+	    </form>
+    </div>
+
+}

@@ -1,0 +1,56 @@
+@(checkList: List[t_card])
+
+@common("代表的な事例選択画面"){
+	<style type="text/css">
+	.wrapper{
+		width:1022px;
+	}
+	.table{
+		float:left;
+		margin: 0 10px 0 0 ;
+	}
+
+	.left{
+		text-align:right;
+	}
+	.
+	</style>
+	<h1>体表的な事例選択画面</h1>
+	<div class="wrapper">
+		@if(checkList.isEmpty()) {
+	       データは一件もありません
+	    } else {
+	        @for(check <- checkList) {
+				<table class="table">
+					<tbody>
+						<tr>
+							<td>送り主：</td>
+							<td colspan="2">@check.sousin_id</td>
+						</tr>
+						<tr>
+							<td>日付：</td>
+							<td colspan="2">@check.card_date</td>
+						</tr>
+						<tr>
+							<td>カテゴリ：</td>
+							<td colspan="2">@check.category_id</td>
+						</tr>
+						<tr>
+							<td>ヘルプ内容：</td>
+							<td colspan="2">@check.card_help</td>
+						</tr>
+						<tr>
+							<td>お礼のコメント：</td>
+							<td colspan="2">@check.card_comment</td>
+						</tr>
+						<tr>
+							<td  colspan="3" class="left size"></td>
+						</tr>
+					</tbody>
+				</table>
+	        }
+
+	    }
+    </div>
+
+}

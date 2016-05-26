@@ -1,11 +1,8 @@
 @(choiceList: List[t_card])
 
-@common("代表的な事例選択画面"){
+@topDesign("代表的な事例選択画面"){
 	<style type="text/css">
-	.wrapper{
-		width:1022px;
-	}
-	.table{
+	.table1{
 		float:left;
 		margin: 0 10px 0 0 ;
 	}
@@ -17,12 +14,12 @@
 	</style>
 	<h1>体表的な事例選択画面</h1>
 	<div class="wrapper">
-	<form method="POST" action="/choice_re">
+	<form method="POST" action=@routes.HomeController.choice_re()>
 		@if(choiceList.isEmpty()) {
 	       データは一件もありません
 	    } else {
 	        @for(choice <- choiceList) {
-				<table class="table">
+				<table class="table1">
 					<tbody>
 						<tr>
 							<td>送り主：</td>
@@ -45,7 +42,7 @@
 							<td colspan="2">@choice.card_comment</td>
 						</tr>
 						<tr>
-							<td  colspan="3" class="left size"><input type="checkbox" name="name" value="１">事例の選択</td>
+							<td  colspan="3" class="left size"><input type="checkbox" name="chack-card" value="@choice.card_id">事例の選択</td>
 						</tr>
 					</tbody>
 				</table>

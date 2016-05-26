@@ -1,0 +1,51 @@
+@import com.avaje.ebean.SqlRow;
+
+@(taskList: List[SqlRow])
+
+@common("感謝カード - 掲示板"){
+	<h1>掲示板</h1>
+	<form method="get" action="">
+		<a>部別：
+			<select name="example1">
+				<option value="サンプル1">選択肢のサンプル1</option>
+				<option value="サンプル2">選択肢のサンプル2</option>
+				<option value="サンプル3">選択肢のサンプル3</option>
+			</select>
+		</a>
+		<a>日付別：
+			<select name="example2">
+				<option value="サンプル1">選択肢のサンプル1</option>
+				<option value="サンプル2">選択肢のサンプル2</option>
+				<option value="サンプル3">選択肢のサンプル3</option>
+			</select>
+		</a>
+		<a>部署別関連度：
+			<select name="example4">
+				<option value="サンプル1">選択肢のサンプル1</option>
+				<option value="サンプル2">選択肢のサンプル2</option>
+				<option value="サンプル3">選択肢のサンプル3</option>
+			</select>
+		</a>
+		<a><input type="submit" value="ソート"></a><br>
+	</form>
+	<form method="get" action="@routes.HomeController.daihyou()">
+		<a>今月の代表例：</a><input type="submit" value="抽出">
+	</form>
+	<section>
+		@if(taskList.isEmpty()) {
+			Task は一件もありません
+		} else {
+			@for(task <- taskList) {
+				<article>
+					<div class="itiran" style="height:100px;width:100px;background-color: #99cc00;float:left;margin:20px;">
+						<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
+							<p>@task.getString("jyusin")</p>
+							<p>@task.getDate("card_date")</p>
+							<p>@task.getString("category")</p>
+						</a>
+					</div>
+				</article>
+			}
+		}
+	</section>
+}

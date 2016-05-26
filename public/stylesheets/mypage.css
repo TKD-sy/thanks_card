@@ -1,0 +1,54 @@
+.menu{
+	color: #333;
+    padding: 10px;
+    border: #ff7f92 dashed 1px;
+    background: #fff;
+    float : left;
+    font-size : 20px;
+    width : 185px;
+	height : 450px;
+}
+
+.mypageTop {
+	float: right;
+    height: 450px;
+    width: 750px;
+    color: #333;
+background-image: -moz-linear-gradient(left, #cc9f61, #ebb76f);
+background-image: -ms-linear-gradient(left, #cc9f61, #ebb76f);
+background-image: -o-linear-gradient(left, #cc9f61, #ebb76f);
+background-image: -webkit-gradient(linear, left top, right top, from(#cc9f61), to(#ebb76f));
+background-image: -webkit-linear-gradient(left, #cc9f61, #ebb76f);
+background-image: linear-gradient(left, #cc9f61, #ebb76f);
+    padding: 20px;
+    border: 2px dashed rgba(255,255,255,0.5);
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+}
+
+.myp_links{
+	width: 150px;
+	margin: 5%;
+  background-color: hsl(116, 67%, 66%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#def8dc", endColorstr="#75e26e");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#def8dc), to(#75e26e));
+  background-image: -moz-linear-gradient(top, #def8dc, #75e26e);
+  background-image: -ms-linear-gradient(top, #def8dc, #75e26e);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #def8dc), color-stop(100%, #75e26e));
+  background-image: -webkit-linear-gradient(top, #def8dc, #75e26e);
+  background-image: -o-linear-gradient(top, #def8dc, #75e26e);
+  background-image: linear-gradient(#def8dc, #75e26e);
+  border-color: #75e26e #75e26e hsl(116, 67%, 59.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.42);
+  -webkit-font-smoothing: antialiased;
+}
+
+h2{
+	color: #333;
+}

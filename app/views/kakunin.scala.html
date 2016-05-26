@@ -1,0 +1,24 @@
+@(title: String)(content: Html)
+
+
+<html>
+<head>
+	<title>感謝カード確認画面</title>
+	<meta charset=UTF-8>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/thanks_kakunin.css")">
+</head>
+    <body>
+    <div class="top">
+	<p class="thanksHead"> 感謝カード </p><br>
+    <header>
+    <div class="headlink">
+			<img src="@routes.Assets.versioned("images/top.png")">
+			<img src="@routes.Assets.versioned("images/thanksCard.png")">
+			<img src="@routes.Assets.versioned("images/board.png")">
+			<img src="@routes.Assets.versioned("images/mypage.png")">
+			<img src="@routes.Assets.versioned("images/login.png")">
+	</div>
+	</header>
+        @content
+    </body>
+</html>

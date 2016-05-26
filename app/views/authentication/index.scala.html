@@ -1,0 +1,28 @@
+@(loginForm: Form[Login])
+
+@import helper._
+
+@topDesign("login"){
+	<div class="tl_bun">
+        <h1>ログインフォーム</h1>
+
+        @if(loginForm.hasGlobalErrors) {
+            <p class="error">
+                @loginForm.globalError.message
+            </p>
+        }
+
+        @form(routes.LoginController.authenticate()) {
+            @inputText(loginForm("username"), '_label -> "社員ID")
+            @inputPassword(loginForm("password"), '_label -> "パスワード")
+
+
+            <input type="submit" value="ログイン">
+            <input type="reset" value="リセット">
+
+        }
+
+
+
+     </div>
+}

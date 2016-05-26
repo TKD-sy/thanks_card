@@ -1,0 +1,45 @@
+@(syain_id: Integer)(card_help: String)(card_bumon: String)(card_comment: String)(card_category: String)
+
+
+@kakunin("bbbb"){
+ <font>感謝カード仕上がり確認</font>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ <font1>日付</font1>
+ <font1>YYYY/MM/DD</font1>
+ 	<br>
+ 	<br>
+ 	<br>
+ <form>
+ <font1>感謝される人</font1>　</font2>@syain_id</font2>　　　　　　
+ <font1>部門＆部署</font1>　</font2>@card_bumon</font2>
+
+
+ 　　　　　　
+ <font1>名前</font1>　</font2>～～さん
+ </font2>
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<br>
+ <font1>ヘルプ内容</font1>
+ <br>
+ <br>
+ <font2>@card_help</font2>
+ 	<br>
+ 	<br>
+ <font1>感謝の言葉</font1>
+ 	<br>
+ 	<br>
+ 	<font2>@card_comment</font2>
+ 	<br>
+ 	<br>
+ <font1>カテゴリ</font1>　　<font2>@card_category</font2>
+
+ 	　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+
+ <input type="button" value="　修正　" onClick="history.go(-1)">　　　　　　　
+ <input type="submit" value="　送信　">
+ 	<br>
+ 	<br>
+ 	<br>
+ </form>
+}

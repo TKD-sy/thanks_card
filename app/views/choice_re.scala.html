@@ -1,11 +1,8 @@
-@(checkList: List[t_card])
+@(checkList: ArrayList[t_card])
 
-@common("代表的な事例選択画面"){
+@topDesign("代表的な事例選択画面"){
 	<style type="text/css">
-	.wrapper{
-		width:1022px;
-	}
-	.table{
+	.table1{
 		float:left;
 		margin: 0 10px 0 0 ;
 	}
@@ -21,7 +18,7 @@
 	       データは一件もありません
 	    } else {
 	        @for(check <- checkList) {
-				<table class="table">
+				<table class="table1">
 					<tbody>
 						<tr>
 							<td>送り主：</td>

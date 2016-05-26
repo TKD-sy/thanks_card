@@ -1,0 +1,52 @@
+@(bumonList : List[t_bumon],categoryList : List[t_category])
+
+@card("aaaa"){
+ <font>感謝カード作成画面</font>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ <font1>日付</font1>
+ <font1>YYYY/MM/DD</font1>
+ 	<br>
+ 	<br>
+ 	<br>
+ <form method="post" action="@routes.HomeController.thanks_kakunin()">
+ 　　　<font2>感謝する人の社員ID　<input  type="Search" name="syain_id" value="Search" onfocus="if (this.value == 'Search') { this.value='' }"
+ onblur="if (this.value == '') { this.value='Search' }" />　　　部門＆部署　
+ 	<select name="bumon">
+ 		@if(bumonList.isEmpty()) {
+    	    bumon は一件もありません
+  	  } else {
+    	    @for(bumon <- bumonList) {
+    	    <option value="@bumon.bumon_name">@bumon.bumon_name</option>
+    	    }
+  	  }
+
+ 	</select>
+ </font2>
+
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<br>
+ <font2>ヘルプ内容</font2><br>
+
+ 	<textarea name="card_help" rows="8" cols="110" placeholder="ここにヘルプ内容を記入してください。"></textarea><br>
+ 	<br>
+ <font2>感謝の言葉</font2><br>
+ 	<textarea name="card_comment" rows="8" cols="110" placeholder="ここに感想を記入してください。"></textarea><br>
+ 	<br>
+ 	<br>
+　　　　 <font2>カテゴリ</font2>　　
+ 		<select name="category">
+ 	@if(categoryList.isEmpty()) {
+    	    category は一件もありません
+  	  } else {
+    	    @for(category <- categoryList) {
+    	    <option value="@category.category_name">@category.category_name</option>
+    	    }
+  	  }
+ 	</select>
+ 	　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+
+ <input type="reset" value="　クリア　">　　　　　　　
+ <input type="submit" value="　確認　">
+ </form>
+}

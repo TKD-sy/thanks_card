@@ -1,0 +1,29 @@
+@import com.avaje.ebean.SqlRow;
+
+@(taskList: List[SqlRow])
+
+@common("感謝カード - 掲示板詳細"){
+	<h1>掲示板詳細</h1>
+
+	<section>
+		@if(taskList.isEmpty()) {
+				Task は一件もありません
+		} else {
+			@for(task <- taskList) {
+				<article>
+					<div class="itiran" style="height:300px;width:300px;background-color: #99cc00;margin-bottom:20px;">
+						<p>@task.getString("jyusin")</p>
+						<p>@task.getDate("card_date")</p>
+						<p>@task.getString("category")</p>
+						<p>@task.getString("card_help")</p>
+						<p>@task.getString("card_comment")</p>
+					</div>
+				</article>
+			}
+		}
+	</section>
+	<form method="get" action="@routes.HomeController.keiziban()">
+		<input type="submit" value="戻る">
+	</form>
+
+}

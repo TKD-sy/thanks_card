@@ -1,0 +1,46 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>@title</title>
+	<meta charset=UTF-8>
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/mypage.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/thanks_card.css")">
+
+</head>
+
+<body>
+
+
+<div class="top">
+
+	<div class="topHeader">
+		<p class="thanksHead"> 感謝カード </p><br>
+
+		<div class="headlink">
+			<a href="#"><button type="button" class="btn btn-info links">トップ</button></a>
+			<a href="#"><button type="button" class="btn btn-primary links">感謝カード作成</button></a>
+			<a href="#"><button type="button" class="btn btn-primary links">掲示板</button></a>
+			<a href="#"><button type="button" class="btn btn-primary links">マイページ</button></a>
+			<a href="#"><button type="button" class="btn btn-primary links">ログイン</button></a>
+		</div>
+	</div>
+
+<div id="wrapper">
+ @content
+</div>
+
+	<br>
+	<footer>
+		<p>© 2016 ~~</p>
+	</footer>
+
+</div>
+
+</body>
+</html>

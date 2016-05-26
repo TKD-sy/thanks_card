@@ -473,3 +473,58 @@ Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚�
 The connection was not closed by the application and is garbage collected [90018-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 18 more
+2016-05-26 10:20:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_BUMON" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_BUMON" already exists; SQL statement:
+create table t_bumon (
+bumon_id                      integer not null,
+bumon_name                    varchar(255),
+bumon_buname                  varchar(255),
+bumon_situname                varchar(255),
+bumon_kaname                  varchar(255),
+bumon_group                   varchar(255),
+constraint pk_t_bumon primary key (bumon_id)
+) [42101-191]
+2016-05-26 10:20:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:21:33 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:21:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:21:44 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:22:27 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:23:26 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:31:42 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_SYAIN" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_SYAIN" already exists; SQL statement:
+create table t_syain (
+syain_id                      integer not null,
+bumon_id                      integer,
+yakusyoku_id                  integer,
+syain_name                    varchar(255),
+syain_kana                    varchar(255),
+syain_birth                   timestamp,
+syain_nyuusyabi               timestamp,
+syain_pass                    varchar(255),
+syain_sex                     varchar(255),
+constraint pk_t_syain primary key (syain_id)
+) [42101-191]
+2016-05-26 10:32:12 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT T_SYAIN_SEQ.NEXTVAL UNION[*] SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL "; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "identifier"
+Syntax error in SQL statement "SELECT T_SYAIN_SEQ.NEXTVAL UNION[*] SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL "; expected "identifier"; SQL statement:
+select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval [42001-191]

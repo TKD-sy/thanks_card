@@ -1,0 +1,25 @@
+@(message: String,syainList: List[t_syain],dataForm: Form[t_syain])
+@import helper._
+@common("新入社員登録"){
+
+<h1>@message</h1>
+
+<div class="top">
+
+       @form(routes.HomeController.createData()) {
+            @inputText(dataForm("syain_id"), '_label -> "社員ID")
+            @inputText(dataForm("bumon_id"), '_label -> "部門ID")
+            @inputText(dataForm("yakusyoku_id"), '_label -> "役職ID")
+            @inputText(dataForm("syain_name"), '_label -> "社員名")
+            @inputText(dataForm("syain_kana"), '_label -> "フリガナ")
+            @inputDate(dataForm("syain_birth"), '_label -> "生年月日")
+            @inputDate(dataForm("syain_nyuusyabi"), '_label -> "入社日")
+            @inputText(dataForm("syain_pass"), '_label -> "パスワード")
+            @inputText(dataForm("syain_sex"), '_label -> "性別")
+        <input type="submit" value="追加" />
+</div>
+
+}
+
+}
+

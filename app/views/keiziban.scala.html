@@ -1,51 +1,50 @@
 @import com.avaje.ebean.SqlRow;
 
-@(taskList: List[SqlRow])
+@(taskList: List[SqlRow],bumonList : List[t_bumon])
 
-@common("感謝カード - 掲示板"){
-	<h1>掲示板</h1>
-	<form method="get" action="">
-		<a>部別：
-			<select name="example1">
-				<option value="サンプル1">選択肢のサンプル1</option>
-				<option value="サンプル2">選択肢のサンプル2</option>
-				<option value="サンプル3">選択肢のサンプル3</option>
-			</select>
-		</a>
-		<a>日付別：
-			<select name="example2">
-				<option value="サンプル1">選択肢のサンプル1</option>
-				<option value="サンプル2">選択肢のサンプル2</option>
-				<option value="サンプル3">選択肢のサンプル3</option>
-			</select>
-		</a>
-		<a>部署別関連度：
-			<select name="example4">
-				<option value="サンプル1">選択肢のサンプル1</option>
-				<option value="サンプル2">選択肢のサンプル2</option>
-				<option value="サンプル3">選択肢のサンプル3</option>
-			</select>
-		</a>
-		<a><input type="submit" value="ソート"></a><br>
-	</form>
-	<form method="get" action="@routes.HomeController.daihyou()">
-		<a>今月の代表例：</a><input type="submit" value="抽出">
-	</form>
-	<section>
+@topDesign("感謝カード - 掲示板"){
+	<div class="keitop">
+		<h1>掲示板</h1>
+		<form method="get" action="">
+			<p>部別：
+				<select name="bumon">
+					<option value="">すべて</option>
+					@if(bumonList.isEmpty()) {
+						部門はありません
+					} else {
+						@for(bumon <- bumonList) {
+							<option value="@bumon.bumon_id">@bumon.bumon_name</option>
+						}
+					}
+				</select>
+			月別：
+				<select name="tuki">
+					<option value="サンプル2">選択肢のサンプル2</option>
+					<option value="サンプル3">選択肢のサンプル3</option>
+				</select>
+				<input type="submit" value="表示">
+			</p>
+		</form>
+		<form method="get" action="@routes.HomeController.daihyou()">
+			<p>今月の代表例：<input type="submit" value="抽出"></p>
+		</form>
+		<form method="get" action="">
+			<p>部門別関連度：<input type="submit" value="表示"></p>
+		</form>
+	</div>
+	<div class="clearfix">
 		@if(taskList.isEmpty()) {
-			Task は一件もありません
+			感謝カードは一件もありません
 		} else {
 			@for(task <- taskList) {
-				<article>
-					<div class="itiran" style="height:100px;width:100px;background-color: #99cc00;float:left;margin:20px;">
-						<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
-							<p>@task.getString("jyusin")</p>
-							<p>@task.getDate("card_date")</p>
-							<p>@task.getString("category")</p>
-						</a>
-					</div>
-				</article>
+				<div class="keizi">
+					<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
+						<p>@task.getString("jyusin_bumon")　@task.getString("jyusin")さんへ</p>
+						<p>日付：@task.getDate("card_date")</p>
+						<p>カテゴリ：@task.getString("category")</p>
+					</a>
+				</div>
 			}
 		}
-	</section>
+	</div>
 }

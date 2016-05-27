@@ -1,5 +1,6 @@
 
 
+
 @topDesign("マイページ"){
 
 	<div class="menu">
@@ -8,18 +9,10 @@
 			<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">掲示板</button></a><br>
 			<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">スケジュール</button></a><br>
 			<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">感謝カード作成</button></a><br>
-
-			@if(session.get("yakusyoku") != "3"){
-					<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">追加</button></a><br>
-					<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">編集</button></a><br>
-					<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">代表事例選択</button></a><br>
-				}
-
-
 	</div>
 
 	<div class="mypageTop">
-	<h2>@session.get("name")さん、ようこそ！</h2><br>
+	<h2>マイページへようこそ！</h2><br>
 	</div>
 
 

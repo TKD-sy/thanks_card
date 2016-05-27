@@ -10,6 +10,7 @@
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/thanks_card.css")">
 </head>
 
 <body>
@@ -21,14 +22,18 @@
 		<p class="thanksHead"> 感謝カード </p><br>
 
 		<div class="headlink">
-			<a href="@routes.MainController.top()"><button type="button" class="btn btn-info links">トップ</button></a>
-			<a href="#"><button type="button" class="btn btn-primary links">感謝カード作成</button></a>
-			<a href="#"><button type="button" class="btn btn-primary links">掲示板</button></a>
-			<a href="#"><button type="button" class="btn btn-primary links">マイページ</button></a>
 
-			@if(session.get("login") != null){
+		@if(session.get("login") != null){
+			<a href="@routes.MainController.top()"><button type="button" class="btn btn-info links">トップ</button></a>
+			<a href="@routes.HomeController.thanks_card()"><button type="button" class="btn btn-primary links">感謝カード作成</button></a>
+			<a href="@routes.HomeController.keiziban()"><button type="button" class="btn btn-primary links">掲示板</button></a>
+			<a href="@routes.MainController.mypage"><button type="button" class="btn btn-primary links">マイページ</button></a>
 			<a href="@routes.LoginController.logout()"><button type="button" class="btn btn-primary links">ログアウト</button></a>
 			} else{
+			<a href="@routes.MainController.top()"><button type="button" class="btn btn-info links">トップ</button></a>
+			<a href="@routes.LoginController.index()"><button type="button" class="btn btn-primary links">感謝カード作成</button></a>
+			<a href="@routes.LoginController.index()"><button type="button" class="btn btn-primary links">掲示板</button></a>
+			<a href="@routes.LoginController.index()"><button type="button" class="btn btn-primary links">マイページ</button></a>
 			<a href="@routes.LoginController.index()"><button type="button" class="btn btn-primary links">ログイン</button></a>
 			}
 		</div>

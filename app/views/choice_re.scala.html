@@ -10,16 +10,10 @@
 	.left{
 		text-align:right;
 	}
-	.clearfix:after {
-		content: "";
-		clear: both;
-		display: block;
-	}
+	.
 	</style>
 	<h1>体表的な事例選択画面</h1>
 	<div class="wrapper">
-	<form method="POST" action=@routes.HomeController.choice_re_touroku()>
-		<div class="clearfix">
 		@if(checkList.isEmpty()) {
 	       データは一件もありません
 	    } else {
@@ -47,18 +41,13 @@
 							<td colspan="2">@check.card_comment</td>
 						</tr>
 						<tr>
-							<td  colspan="3" class="left size"><input type="hidden" name="card-id" value="@check.card_id"/></td>
+							<td  colspan="3" class="left size"></td>
 						</tr>
 					</tbody>
 				</table>
 	        }
+
 	    }
-	    </div>
-	    <br />
-	    <br />
-	     <p>これらのカードを選択します。よろしいですか？</p>
-	     <input type="submit" value="はい"><input type="submit" value="いいえ">
-	     </form>
     </div>
 
 }

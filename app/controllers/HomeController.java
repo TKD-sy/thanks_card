@@ -42,7 +42,7 @@ public class HomeController extends Controller {
     }
 
     public Result choice() {
-    	List<t_card> ChoiceList = t_card.find.where().eq("card_flag","0").findList();
+    	List<t_card> ChoiceList = t_card.find.all();
 
     	return ok(choice.render(ChoiceList));
     }
@@ -57,24 +57,6 @@ public class HomeController extends Controller {
     	//List<t_card> CheckList = t_card.find.where().eq("card_flag","1").findList();
 
     	return ok(choice_re.render(CheckList));
-    }
-
-    public Result choice_re_touroku() {
-    	ArrayList<t_card> CheckList = new ArrayList<>();
-    	Map<String, String[]> params = request().body().asFormUrlEncoded();
-    	String[] checkId = params.get("card-id");
-
-    	for(String s:checkId){
-    		List<t_card> aaa = t_card.find.where().eq("card_id",s).findList();
-    		for(t_card card : aaa){
-    			card.card_flag = 1 ;
-    			card.update();
-	    	}
-
-    	}
-    	//List<t_card> CheckList = t_card.find.where().eq("card_flag","1").findList();
-
-    	return redirect(routes.HomeController.choice());
     }
 
         public Result thanks_card() {

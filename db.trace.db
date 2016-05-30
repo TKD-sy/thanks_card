@@ -528,3 +528,88 @@ constraint pk_t_syain primary key (syain_id)
 org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT T_SYAIN_SEQ.NEXTVAL UNION[*] SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL "; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "identifier"
 Syntax error in SQL statement "SELECT T_SYAIN_SEQ.NEXTVAL UNION[*] SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL "; expected "identifier"; SQL statement:
 select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval [42001-191]
+2016-05-30 10:44:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "PLAY_EVOLUTIONS" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "PLAY_EVOLUTIONS" not found; SQL statement:
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-191]
+2016-05-30 10:45:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_CARD" already exists; SQL statement:
+-- 感謝カードテーブル
+create table t_card (
+  card_id integer not null
+  , category_id integer not null
+  , sousin_id integer not null
+  , jyusin_id integer not null
+  , hensin_id integer
+  , card_kidokuflag integer default 0 not null
+  , card_flag integer default 0 not null
+  , card_hensinflag integer default 0 not null
+  , card_help character varying not null
+  , card_comment character varying not null
+  , card_date date not null
+  , constraint t_card_PKC primary key (card_id)
+) [42101-191]
+2016-05-30 10:45:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CATEGORY" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_CATEGORY" already exists; SQL statement:
+-- カテゴリテーブル
+create table t_category (
+  category_id integer not null
+  , category_name character varying not null
+  , constraint t_category_PKC primary key (category_id)
+) [42101-191]
+2016-05-30 10:45:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_BUMON" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_BUMON" already exists; SQL statement:
+-- 部門テーブル
+create table t_bumon (
+  bumon_id integer not null
+  , bumon_name character varying not null
+  , bumon_buname character varying
+  , bumon_situname character varying
+  , bumon_kaname character varying
+  , bumon_group character varying
+  , constraint t_bumon_PKC primary key (bumon_id)
+) [42101-191]
+2016-05-30 10:45:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_SYAIN" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_SYAIN" already exists; SQL statement:
+-- 社員テーブル
+create table t_syain (
+  syain_id integer not null
+  , bumon_id integer not null
+  , yakusyoku_id integer not null
+  , syain_name character varying not null
+  , syain_kana character varying not null
+  , syain_birth date not null
+  , syain_nyuusyabi date not null
+  , syain_pass character varying not null
+  , syain_sex character not null
+  , constraint t_syain_PKC primary key (syain_id)
+) [42101-191]
+2016-05-30 11:55:09 jdbc[85]: null
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more

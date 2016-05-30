@@ -1,28 +1,12 @@
 .menu{
 	color: #333;
+    padding: 10px;
+    border: #ff7f92 dashed 1px;
+    background: #fdfdfd;
     float : left;
     font-size : 20px;
     width : 185px;
 	height : 450px;
-    padding: 10px;
-    background: #b2946c;
-    position: relative;
-    z-index: 10;
-}
-
-.menu:before {
-    content: "";
-    position: absolute;
-    background: #b2946c;
-    margin: 4px;
-    border: 2px #fcfcfc solid;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    z-index: -10;
-
 }
 
 .mypageTop {

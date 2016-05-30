@@ -1,52 +1,49 @@
 @import com.avaje.ebean.SqlRow;
 
-@(taskList: List[SqlRow])
+@(taskList: List[SqlRow],bumonList : List[t_bumon])
 
-@common("感謝カード - 代表的事例"){
+@topDesign("感謝カード - 代表的事例"){
+
+	<div class="keitop" style="height:100px;">
 	<h1>掲示板 - 代表的事例</h1>
-	<form method="get" action="">
-		<a>部別：
-			<select name="example1">
-				<option value="サンプル1">選択肢のサンプル1</option>
-				<option value="サンプル2">選択肢のサンプル2</option>
-				<option value="サンプル3">選択肢のサンプル3</option>
-			</select>
-		</a>
-		<a>日付別：
-			<select name="example2">
-				<option value="サンプル1">選択肢のサンプル1</option>
-				<option value="サンプル2">選択肢のサンプル2</option>
-				<option value="サンプル3">選択肢のサンプル3</option>
-			</select>
-		</a>
-		<a>部署別関連度：
-			<select name="example4">
-				<option value="サンプル1">選択肢のサンプル1</option>
-				<option value="サンプル2">選択肢のサンプル2</option>
-				<option value="サンプル3">選択肢のサンプル3</option>
-			</select>
-		</a>
-		<a><input type="submit" value="ソート"></a><br>
-	</form>
+		<form method="get" action="">
+			<p>部別：
+				<select name="bumon">
+					<option value="">すべて</option>
+					@if(bumonList.isEmpty()) {
+						部門はありません
+					} else {
+						@for(bumon <- bumonList) {
+							<option value="@bumon.bumon_id">@bumon.bumon_name</option>
+						}
+					}
+				</select>
+			日付別：
+				<select name="example2">
+					<option value="サンプル1">選択肢のサンプル1</option>
+					<option value="サンプル2">選択肢のサンプル2</option>
+					<option value="サンプル3">選択肢のサンプル3</option>
+				</select>
 
-	<section>
+			<input type="submit" value="表示"><br>
+		</form>
+	</div>
+	<div class="clearfix">
 		@if(taskList.isEmpty()) {
-			Task は一件もありません
+			<h2>選択された代表的事例は一件もありません</h2>
+
 		} else {
 			@for(task <- taskList) {
-				<article>
-					<div class="itiran" style="height:300px;width:300px;background-color: #99cc00;float:left;margin:20px;">
+					<div class="keizi">
 						<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
-							<p>@task.getString("jyusin")</p>
-							<p>@task.getDate("card_date")</p>
-							<p>@task.getString("card_help")</p>
+							<p>@task.getString("jyusin_bumon")　@task.getString("jyusin")</p>
+							<p>日付：@task.getDate("card_date")</p>
+							<p>ヘルプ内容：@task.getString("card_help")</p>
 						</a>
 					</div>
-				</article>
 			}
 		}
-	</section>
-	<form method="get" action="@routes.HomeController.keiziban()">
-		</a><input type="submit" value="掲示板へ戻る">
-	</form>
+
+	</div>
+	<a href=@routes.HomeController.keiziban()><input type="button" class="modo" value="掲示板へ戻る"></a>
 }

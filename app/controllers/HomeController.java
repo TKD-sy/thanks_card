@@ -45,7 +45,7 @@ public class HomeController extends Controller {
     }
 
     public Result choice() {
-    	List<t_card> ChoiceList = t_card.find.all();
+    	List<t_card> ChoiceList = t_card.find.where().eq("card_flag","0").findList();
 
     	return ok(choice.render(ChoiceList));
     }

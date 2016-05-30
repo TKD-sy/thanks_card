@@ -17,7 +17,7 @@ GET		/choice						controllers.HomeController.choice
 
 
 POST	/choice_re			controllers.HomeController.choice_re
-
+POST	/choice_re_touroku			controllers.HomeController.choice_re_touroku()
 
 
 
@@ -28,7 +28,8 @@ POST	/senddate					controllers.HomeController.senddate
 
 
 GET     /new_touroku                      controllers.HomeController.new_touroku
-POST     /new_touroku                     controllers.HomeController.createData
+POST     /touroku_kakunin                 controllers.HomeController.touroku_kakunin
+POST     /createData                      controllers.HomeController.createData
 GET     /change                           controllers.HomeController.change
 GET     /jusin                            controllers.HomeController.jusin
 GET     /sousin                           controllers.HomeController.sousin

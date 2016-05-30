@@ -4,9 +4,7 @@
 	<div class="menu">
 			<a href="@routes.HomeController.jusin()"><button type="button" class="btn btn-primary btn-lg myp_links">受信ボックス</button></a><br>
 			<a href="@routes.HomeController.sousin()"><button type="button" class="btn btn-primary btn-lg myp_links">送信ボックス</button></a><br>
-			<a href="@routes.HomeController.keiziban()"><button type="button" class="btn btn-primary btn-lg myp_links">掲示板</button></a><br>
-			<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">スケジュール</button></a><br>
-			<a href="@routes.HomeController.thanks_card()"><button type="button" class="btn btn-primary btn-lg myp_links">感謝カード作成</button></a><br>
+			<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">ひとことメモ</button></a><br>
 
 			@if(session.get("yakusyoku") != "3"){
 					<a href="@routes.HomeController.new_touroku()"><button type="button" class="btn btn-primary btn-lg myp_links">社員追加</button></a><br>

@@ -1,10 +1,13 @@
 package controllers;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import models.t_card;
 import models.t_bumon;
 import models.t_category;
 import models.t_syain;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import com.avaje.ebean.SqlRow;
@@ -59,64 +62,69 @@ public class HomeController extends Controller {
     	return ok(choice_re.render(CheckList));
     }
 
-        public Result choice_re_touroku() {
-    	     	ArrayList<t_card> CheckList = new ArrayList<>();
-    	     	Map<String, String[]> params = request().body().asFormUrlEncoded();
-    	     	String[] checkId = params.get("card-id");
-
-    	     	for(String s:checkId){
-    	     		List<t_card> aaa = t_card.find.where().eq("card_id",s).findList();
-    	     		for(t_card card : aaa){
-    	     			card.card_flag = 1 ;
-    	     			card.update();
-    	 	    	}
-
-    	     	}
-    	     	//List<t_card> CheckList = t_card.find.where().eq("card_flag","1").findList();
-
-    	     	return redirect(routes.HomeController.choice());
-    	     }
-
-
         public Result thanks_card() {
 
-        List<t_bumon> bumonList = t_bumon.find.all();
         List<t_category> categoryList = t_category.find.all();
-        return ok(thanks_card.render(bumonList,categoryList));
+        return ok(thanks_card.render(categoryList));
     }
 
     public Result thanks_kakunin() {
-        Map<String, String[]> params = request().body().asFormUrlEncoded();
-        String syain =params.get("syain_id")[0];
-        int syain_id = Integer.parseInt(syain);
-        String card_help =params.get("card_help")[0];
-        String card_bumon =params.get("bumon")[0];
-        String card_comment =params.get("card_comment")[0];
-        String card_category =params.get("category")[0];
-        return ok(thanks_kakunin.render(syain_id,card_help,card_bumon,card_comment,card_category));
+    	String anser = "";
+    	t_card newCard = formFactory.form(t_card.class).bindFromRequest().get();
+
+    	List<t_category> category = t_category.find.all();
+    	List<t_syain> syain = t_syain.find.all();
+    	Map<String, String[]> params = request().body().asFormUrlEncoded();
+    	String[] chack_card_id = params.get("jyusin_id");
+    	for(String s:chack_card_id){
+    		 List<t_card> ans = t_card.find.where().eq("card_id",s).findList();
+    		 if(ans.isEmpty()){
+    			 anser = "いない";
+    		 }else{
+    			 String sql = "select syain_name  from t_syain where syain_id = :id;";
+    			 List<SqlRow> aaa = Ebean.createSqlQuery(sql) .setParameter("id",s).findList();
+    			 SqlRow direct = aaa.get(0);
+
+    			 anser =(String)direct.get("syain_name");
+    		 }
+    	}
+        return ok(thanks_kakunin.render(newCard,category,syain,anser));
     }
-    //社員登録メソッド
+
+
+    public Result senddate() {
+
+    	t_card newCard = formFactory.form(t_card.class).bindFromRequest().get();
+    	t_card dateCard = new t_card();
+
+    	dateCard.category_id = newCard.category_id;
+    	dateCard.sousin_id = newCard.sousin_id;
+    	dateCard.jyusin_id = newCard.jyusin_id;
+    	dateCard.hensin_id = 0;
+    	dateCard.card_kidokuflag = 0;
+    	dateCard.card_flag = 0;
+    	dateCard.card_hensinflag = 0;
+    	dateCard.card_help = newCard.card_help;
+    	dateCard.card_comment = newCard.card_comment;
+    	dateCard.card_date = newCard.card_date;
+    	dateCard.save();
+        return ok(senddate.render());
+    }
+
+
     public Result new_touroku() {
 
-
-        return ok(new_touroku.render("新入社員追加",formFactory.form(t_syain.class)));
+    	List<t_syain> syainList = t_syain.find.all();
+        return ok(new_touroku.render("新入社員追加",(syainList),formFactory.form(t_syain.class)));
 
     }
 
-    //登録内容確認メソッド
-    public Result touroku_kakunin(){
-
-    t_syain CreateData = formFactory.form(t_syain.class).bindFromRequest().get();
-    return ok(touroku_kakunin.render("内容確認",CreateData));
-    }
 
 
-    //登録内容をDBに登録
     public Result createData(){
-
     	t_syain CreateData = formFactory.form(t_syain.class).bindFromRequest().get();
         CreateData.save();
-        return ok(createData.render());
+        return redirect(routes.HomeController.new_touroku());
     }
 
 
@@ -133,23 +141,23 @@ public class HomeController extends Controller {
     	return ok(jusin.render("受信ボックス"));
     }
 
-    public Result keiziban(){
-        List<t_bumon> bumonList = t_bumon.find.all();
-        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id order by card_id desc";
+        public Result keiziban(){
+        //List<t_card> taskList = t_card.find.all();
+        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,b.syain_name as jyusin,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id";
         List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
-        return ok(keiziban.render(sqlRows,bumonList));
+        return ok(keiziban.render(sqlRows));
     }
     public Result syousai(Integer id){
         //t_card task = t_card.find.byId(id);
-        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_id = :id";
+        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,b.syain_name as jyusin,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id where card_id = :id";
         List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).setParameter("id",id).findList();
         return ok(syousai.render(sqlRows));
     }
     public Result daihyou(){
-    	List<t_bumon> bumonList = t_bumon.find.all();
-        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag, card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE() order by card_id desc";
+        //t_card task = t_card.find.byId(id);
+        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,b.syain_name as jyusin,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE()";
         List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
-        return ok(daihyou.render(sqlRows,bumonList));
+        return ok(daihyou.render(sqlRows));
     }
 
 }

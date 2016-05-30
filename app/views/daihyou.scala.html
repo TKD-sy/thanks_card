@@ -1,17 +1,22 @@
 @import com.avaje.ebean.SqlRow;
 
-@(taskList: List[SqlRow])
+@(taskList: List[SqlRow],bumonList : List[t_bumon])
 
 @topDesign("感謝カード - 代表的事例"){
 
 	<div class="keitop" style="height:100px;">
 	<h1>掲示板 - 代表的事例</h1>
 		<form method="get" action="">
-			部別：
-				<select name="example1">
-					<option value="サンプル1">選択肢のサンプル1</option>
-					<option value="サンプル2">選択肢のサンプル2</option>
-					<option value="サンプル3">選択肢のサンプル3</option>
+			<p>部別：
+				<select name="bumon">
+					<option value="">すべて</option>
+					@if(bumonList.isEmpty()) {
+						部門はありません
+					} else {
+						@for(bumon <- bumonList) {
+							<option value="@bumon.bumon_id">@bumon.bumon_name</option>
+						}
+					}
 				</select>
 			日付別：
 				<select name="example2">

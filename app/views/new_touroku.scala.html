@@ -1,4 +1,4 @@
-@(message: String,syainList: List[t_syain],dataForm: Form[t_syain])
+@(message: String,dataForm: Form[t_syain])
 @import helper._
 @common("新入社員登録"){
 
@@ -6,7 +6,7 @@
 
 <div class="top">
 
-       @form(routes.HomeController.createData()) {
+       @form(routes.HomeController.touroku_kakunin()) {
             @inputText(dataForm("syain_id"), '_label -> "社員ID")
             @inputText(dataForm("bumon_id"), '_label -> "部門ID")
             @inputText(dataForm("yakusyoku_id"), '_label -> "役職ID")
@@ -15,11 +15,16 @@
             @inputDate(dataForm("syain_birth"), '_label -> "生年月日")
             @inputDate(dataForm("syain_nyuusyabi"), '_label -> "入社日")
             @inputText(dataForm("syain_pass"), '_label -> "パスワード")
-            @inputText(dataForm("syain_sex"), '_label -> "性別")
+            @select(
+            	field = dataForm("syain_sex"),
+            	options = options(("男","男"),("女","女")),
+            	'_label -> "性別"
+            	)
+
+
+
         <input type="submit" value="追加" />
 </div>
 
 }
-
 }
-

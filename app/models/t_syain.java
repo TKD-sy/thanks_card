@@ -31,8 +31,8 @@ public class t_syain extends Model {
 	    public String syain_sex;
 
 	    public static Find<Integer,t_syain> find = new Find<Integer,t_syain>(){};
-	    
-	    
+
+
 
 
 }

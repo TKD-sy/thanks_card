@@ -26,7 +26,8 @@ POST	/thanks_kakunin				controllers.HomeController.thanks_kakunin
 
 
 GET     /new_touroku                      controllers.HomeController.new_touroku
-POST     /new_touroku                     controllers.HomeController.createData
+POST     /touroku_kakunin                 controllers.HomeController.touroku_kakunin
+POST     /createData                      controllers.HomeController.createData
 GET     /change                           controllers.HomeController.change
 GET     /jusin                            controllers.HomeController.jusin
 GET     /sousin                           controllers.HomeController.sousin

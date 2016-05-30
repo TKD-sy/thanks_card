@@ -15,7 +15,8 @@ background-image: -o-linear-gradient(left, #dadada, #ededed);
 background-image: -webkit-gradient(linear, left top, right top, from(#dadada), to(#ededed));
 background-image: -webkit-linear-gradient(left, #dadada, #ededed);
 background-image: linear-gradient(left, #dadada, #ededed);
-    height: 800px;
+    min-height: 800px;
+    height : auto;
 }
 
 .topHeader {
@@ -99,7 +100,8 @@ footer {
 
 #wrapper{
 	padding : 50px 0 0 0;
-	height : 500px;
+	min-height : 500px;
+	height : auto;
 }
 
 
@@ -108,7 +110,7 @@ footer {
 
 
 
-/*郢晏現繝｣郢晏干�ｿｽ�ｽｮ郢晢ｿｽ郢ｧ�ｽｶ郢ｧ�ｽ､郢晢ｽｳ邵ｺ�ｽｨ邵ｺ�ｽｯ鬮｢�ｽ｢闖ｫ繧��ｿｽ�ｽｮ邵ｺ�ｽｪ邵ｺ�ｿｽ郢ｧ繧��ｿｽ�ｽｮ邵ｺ�ｽｧ邵ｺ蜷ｶ�ｿｽ�ｿｽ  */
+/*驛｢譎冗樟郢晢ｽ｣驛｢譎丞ｹｲ�ｿｽ�ｽｿ�ｽｽ�ｿｽ�ｽｽ�ｽｮ驛｢譎｢�ｽｿ�ｽｽ驛｢�ｽｧ�ｿｽ�ｽｽ�ｽｶ驛｢�ｽｧ�ｿｽ�ｽｽ�ｽ､驛｢譎｢�ｽｽ�ｽｳ驍ｵ�ｽｺ�ｿｽ�ｽｽ�ｽｨ驍ｵ�ｽｺ�ｿｽ�ｽｽ�ｽｯ鬯ｮ�ｽ｢�ｿｽ�ｽｽ�ｽ｢髣厄ｽｫ郢ｧ�ｿｽ�ｿｽ�ｽｿ�ｽｽ�ｿｽ�ｽｽ�ｽｮ驍ｵ�ｽｺ�ｿｽ�ｽｽ�ｽｪ驍ｵ�ｽｺ�ｿｽ�ｽｿ�ｽｽ驛｢�ｽｧ郢ｧ�ｿｽ�ｿｽ�ｽｿ�ｽｽ�ｿｽ�ｽｽ�ｽｮ驍ｵ�ｽｺ�ｿｽ�ｽｽ�ｽｧ驍ｵ�ｽｺ陷ｷ�ｽｶ�ｿｽ�ｽｿ�ｽｽ�ｿｽ�ｽｿ�ｽｽ  */
 
 .tl_bun{
 	padding: 100px 0 0 0;

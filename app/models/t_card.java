@@ -2,6 +2,7 @@ package models;
 
 import com.avaje.ebean.Model;
 
+import java.security.Timestamp;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;

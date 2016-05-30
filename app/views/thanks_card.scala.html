@@ -1,11 +1,8 @@
 @(categoryList : List[t_category])
 
-<<<<<<< HEAD
+
 @topDesign("感謝カード作成画面"){
 <font>感謝カード作成画面</font>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-=======
-@topDesign("aaaa"){
- <font>感謝カード作成画面</font>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
  <font1>日付</font1>
  <font1>YYYY/MM/DD</font1>
  	<br>
@@ -13,16 +10,7 @@
  	<br>
  <form method="post" action="@routes.HomeController.thanks_kakunin()">
  　　　<font2>感謝する人の社員ID　<input  type="Search" name="syain_id" value="Search" onfocus="if (this.value == 'Search') { this.value='' }"
- onblur="if (this.value == '') { this.value='Search' }" />　　　部門＆部署　
- 	<select name="bumon">
- 		@if(bumonList.isEmpty()) {
-    	    bumon は一件もありません
-  	  } else {
-    	    @for(bumon <- bumonList) {
-    	    <option value="@bumon.bumon_name">@bumon.bumon_name</option>
-    	    }
-  	  }
->>>>>>> refs/remotes/origin/HEAD
+ onblur="if (this.value == '') { this.value='Search' }" />
 
 <form method="post" action="@routes.HomeController.thanks_kakunin()">
 　　　　　　　　　

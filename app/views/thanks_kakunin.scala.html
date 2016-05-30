@@ -14,9 +14,6 @@
  <input type="hidden" name="card_date" value="@card_inf.card_date"> -->
  <font2>@{"%tY/%<tm/%<td" format card_inf.card_date}</font2>
        		<input type="hidden" name="card_date" value=@{"%tF" format card_inf.card_date}>
-
-
-
  	<br>
  	<br>
  	<br>
@@ -27,33 +24,24 @@
 　　　　　　　　　　　　　　
  <font1>感謝する人</font1>　<font2>@session.get("name")</font2>
  <input type="hidden" name="sousin_id" value="@session.get("id")"><br>
-
  	<br>
  	<br>
  	<br>
  	<br>
-
  <font1>ヘルプ内容</font1>
-
  <br>
  <br>
-
  <font2>@card_inf.card_help</font2>
  <input type="hidden" name="card_help" value="@card_inf.card_help"><br>
-
  	<br>
  	<br>
-
  <font1>感謝の言葉</font1>
-
  	<br>
  	<br>
-
  <font2>@card_inf.card_comment</font2>
 <input type="hidden" name="card_comment" value="@card_inf.card_comment"><br>
  	<br>
  	<br>
-
  <font1>ヘルプ区分</font1>　　
 		@for(cate <- categoryList) {
     	    @if(cate.category_id == card_inf.category_id){
@@ -61,16 +49,9 @@
     	    <input type="hidden" name="category_id" value="@card_inf.category_id"><br>
 			}
   	  	}
-
-
-
 <br>
 <br>
-
  <input type="button" value="　修正　" onClick="history.go(-1)">　　　　　　　
  <input type="submit" value="　送信　">
-
-
 	</form>
 }
-

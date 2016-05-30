@@ -1,11 +1,31 @@
 @(title: String)(content: Html)
+<!DOCTYPE html>
+<html lang="ja">
 
-<html>
     <head>
-        <title>@title | ToDo</title>
-        <link rel="stylesheets" href="@routes.Assets.versioned("stylesheets/choice.css")">
+          <meta charset="UTF-8">
+          <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+          <title>@title</title>
     </head>
+
     <body>
+                     <div class="thanksHead">
+                         <h1>感謝カード</h1>
+                     </div>
+
+    	<header>
+
+
+                     <div class="headlink">
+                     <img src="@routes.Assets.versioned("images/top.png")">
+			         <img src="@routes.Assets.versioned("images/thanksCard.png")">
+			         <img src="@routes.Assets.versioned("images/board.png")">
+			         <img src="@routes.Assets.versioned("images/mypage.png")">
+			         <img src="@routes.Assets.versioned("images/login.png")">
+                     </div>
+    	</header>
+
         @content
     </body>
+
 </html>

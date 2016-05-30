@@ -95,20 +95,28 @@ public class HomeController extends Controller {
         String card_category =params.get("category")[0];
         return ok(thanks_kakunin.render(syain_id,card_help,card_bumon,card_comment,card_category));
     }
-
+    //社員登録メソッド
     public Result new_touroku() {
 
-    	List<t_syain> syainList = t_syain.find.all();
-        return ok(new_touroku.render("新入社員追加",(syainList),formFactory.form(t_syain.class)));
+
+        return ok(new_touroku.render("新入社員追加",formFactory.form(t_syain.class)));
 
     }
 
+    //登録内容確認メソッド
+    public Result touroku_kakunin(){
+
+    t_syain CreateData = formFactory.form(t_syain.class).bindFromRequest().get();
+    return ok(touroku_kakunin.render("内容確認",CreateData));
+    }
 
 
+    //登録内容をDBに登録
     public Result createData(){
+
     	t_syain CreateData = formFactory.form(t_syain.class).bindFromRequest().get();
         CreateData.save();
-        return redirect(routes.HomeController.new_touroku());
+        return ok(createData.render());
     }
 
 

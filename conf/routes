@@ -23,6 +23,8 @@ POST	/choice_re_touroku			controllers.HomeController.choice_re_touroku()
 
 GET     /thanks_card                controllers.HomeController.thanks_card
 POST	/thanks_kakunin				controllers.HomeController.thanks_kakunin
+POST	/senddate					controllers.HomeController.senddate
+
 
 
 GET     /new_touroku                      controllers.HomeController.new_touroku

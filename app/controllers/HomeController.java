@@ -80,21 +80,54 @@ public class HomeController extends Controller {
 
         public Result thanks_card() {
 
-        List<t_bumon> bumonList = t_bumon.find.all();
         List<t_category> categoryList = t_category.find.all();
-        return ok(thanks_card.render(bumonList,categoryList));
+        return ok(thanks_card.render(categoryList));
     }
 
     public Result thanks_kakunin() {
-        Map<String, String[]> params = request().body().asFormUrlEncoded();
-        String syain =params.get("syain_id")[0];
-        int syain_id = Integer.parseInt(syain);
-        String card_help =params.get("card_help")[0];
-        String card_bumon =params.get("bumon")[0];
-        String card_comment =params.get("card_comment")[0];
-        String card_category =params.get("category")[0];
-        return ok(thanks_kakunin.render(syain_id,card_help,card_bumon,card_comment,card_category));
+    	String anser = "";
+    	t_card newCard = formFactory.form(t_card.class).bindFromRequest().get();
+
+    	List<t_category> category = t_category.find.all();
+    	List<t_syain> syain = t_syain.find.all();
+    	Map<String, String[]> params = request().body().asFormUrlEncoded();
+    	String[] chack_card_id = params.get("jyusin_id");
+    	for(String s:chack_card_id){
+    		 List<t_card> ans = t_card.find.where().eq("card_id",s).findList();
+    		 if(ans.isEmpty()){
+    			 anser = "いない";
+    		 }else{
+    			 String sql = "select syain_name  from t_syain where syain_id = :id;";
+    			 List<SqlRow> aaa = Ebean.createSqlQuery(sql) .setParameter("id",s).findList();
+    			 SqlRow direct = aaa.get(0);
+
+    			 anser =(String)direct.get("syain_name");
+    		 }
+    	}
+        return ok(thanks_kakunin.render(newCard,category,syain,anser));
     }
+
+
+    public Result senddate() {
+
+    	t_card newCard = formFactory.form(t_card.class).bindFromRequest().get();
+    	t_card dateCard = new t_card();
+
+    	dateCard.category_id = newCard.category_id;
+    	dateCard.sousin_id = newCard.sousin_id;
+    	dateCard.jyusin_id = newCard.jyusin_id;
+    	dateCard.hensin_id = 0;
+    	dateCard.card_kidokuflag = 0;
+    	dateCard.card_flag = 0;
+    	dateCard.card_hensinflag = 0;
+    	dateCard.card_help = newCard.card_help;
+    	dateCard.card_comment = newCard.card_comment;
+    	dateCard.card_date = newCard.card_date;
+    	dateCard.save();
+        return ok(senddate.render());
+    }
+
+
     //社員登録メソッド
     public Result new_touroku() {
 

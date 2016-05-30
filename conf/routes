@@ -17,7 +17,7 @@ GET		/choice						controllers.HomeController.choice
 
 
 POST	/choice_re			controllers.HomeController.choice_re
-
+POST	/choice_re_touroku			controllers.HomeController.choice_re_touroku()
 
 
 

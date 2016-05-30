@@ -1,0 +1,530 @@
+2016-05-24 11:49:46 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "PLAY_EVOLUTIONS" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "PLAY_EVOLUTIONS" not found; SQL statement:
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-191]
+2016-05-24 11:50:42 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT  FROM CHOICE T0 [*]"; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"
+Syntax error in SQL statement "SELECT  FROM CHOICE T0 [*]"; expected "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select  from choice t0 [42001-191]
+2016-05-24 12:43:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_CARD" already exists; SQL statement:
+create table t_card (
+) [42101-191]
+2016-05-24 12:47:51 jdbc[25]: null
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more
+2016-05-24 12:53:52 jdbc[35]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT  FROM T_CARD T0 [*]"; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"
+Syntax error in SQL statement "SELECT  FROM T_CARD T0 [*]"; expected "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select  from t_card t0 [42001-191]
+2016-05-24 13:13:02 jdbc[56]: null
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more
+2016-05-24 13:32:40 jdbc[86]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT  FROM T_CARD T0 [*]"; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"
+Syntax error in SQL statement "SELECT  FROM T_CARD T0 [*]"; expected "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select  from t_card t0 [42001-191]
+2016-05-24 13:33:32 jdbc[96]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT  FROM T_CARD T0 [*]"; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"
+Syntax error in SQL statement "SELECT  FROM T_CARD T0 [*]"; expected "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select  from t_card t0 [42001-191]
+2016-05-24 13:37:31 jdbc[106]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT  FROM T_CARD T0 [*]"; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"
+Syntax error in SQL statement "SELECT  FROM T_CARD T0 [*]"; expected "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select  from t_card t0 [42001-191]
+2016-05-24 13:38:19 jdbc[116]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT  FROM T_CARD T0 [*]"; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"
+Syntax error in SQL statement "SELECT  FROM T_CARD T0 [*]"; expected "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select  from t_card t0 [42001-191]
+2016-05-24 13:45:39 jdbc[176]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "INSERT INTO([*]CARD_ID,CATEGORY_ID) VALUES(1,1) "; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "identifier"
+Syntax error in SQL statement "INSERT INTO([*]CARD_ID,CATEGORY_ID) VALUES(1,1) "; expected "identifier"; SQL statement:
+insert into(card_id,category_id) values(1,1) [42001-191]
+2016-05-24 13:49:40 jdbc[187]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:119)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.login(WebApp.java:955)
+	at org.h2.server.web.WebApp.process(WebApp.java:211)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more
+2016-05-24 13:49:46 jdbc[197]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT  FROM T_CARD T0 [*]"; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"
+Syntax error in SQL statement "SELECT  FROM T_CARD T0 [*]"; expected "RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select  from t_card t0 [42001-191]
+2016-05-24 14:11:09 jdbc[208]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:119)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.login(WebApp.java:955)
+	at org.h2.server.web.WebApp.process(WebApp.java:211)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+--感謝カード
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(1,1,1,2,1,0,0,0,'test','ty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(2,1,1,2,1,0,0,0,'testtest','tyty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(3,1,1,2,1,0,0,0,'testtesttest','tytyty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(4,1,1,2,1,0,0,0,'test','ty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(5,1,1,2,1,0,0,0,'testtest','tyty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(6,1,1,2,1,0,0,0,'testtesttest','tytyty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(7,1,1,2,1,0,0,0,'test','ty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(8,1,1,2,1,0,0,0,'testtest','tyty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:57:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(9,1,1,2,1,0,0,0,'testtesttest','tytyty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:58:04 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "CARD_HELP" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "CARD_HELP" not found; SQL statement:
+insert into t_card(card_id,category_id,sousin_id,jyusin_id,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date)
+values(1,1,1,2,1,0,0,0,'test','ty','2016-05-23') [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:680)
+	at org.h2.command.Parser.parseColumn(Parser.java:866)
+	at org.h2.command.Parser.parseColumnList(Parser.java:850)
+	at org.h2.command.Parser.parseInsert(Parser.java:1050)
+	at org.h2.command.Parser.parsePrepared(Parser.java:411)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-24 14:58:36 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "DROP TABE[*] T_CARD "; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"
+Syntax error in SQL statement "DROP TABE[*] T_CARD "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+drop tabe t_card [42001-191]
+2016-05-24 15:02:45 jdbc[65]: null
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more
+2016-05-26 10:20:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_BUMON" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_BUMON" already exists; SQL statement:
+create table t_bumon (
+bumon_id                      integer not null,
+bumon_name                    varchar(255),
+bumon_buname                  varchar(255),
+bumon_situname                varchar(255),
+bumon_kaname                  varchar(255),
+bumon_group                   varchar(255),
+constraint pk_t_bumon primary key (bumon_id)
+) [42101-191]
+2016-05-26 10:20:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:21:33 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:21:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:21:44 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:22:27 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:23:26 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "T_CARD" not found; SQL statement:
+select t0.card_id c0, t0.category_id c1, t0.sousin_id c2, t0.jyusin_id c3, t0.hensin_id c4, t0.card_kidokuflag c5, t0.card_flag c6, t0.card_hensinflag c7, t0.card_help c8, t0.card_comment c9, t0.card_date c10 from t_card t0 [42102-191]
+2016-05-26 10:31:42 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_SYAIN" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_SYAIN" already exists; SQL statement:
+create table t_syain (
+syain_id                      integer not null,
+bumon_id                      integer,
+yakusyoku_id                  integer,
+syain_name                    varchar(255),
+syain_kana                    varchar(255),
+syain_birth                   timestamp,
+syain_nyuusyabi               timestamp,
+syain_pass                    varchar(255),
+syain_sex                     varchar(255),
+constraint pk_t_syain primary key (syain_id)
+) [42101-191]
+2016-05-26 10:32:12 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT T_SYAIN_SEQ.NEXTVAL UNION[*] SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL "; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "identifier"
+Syntax error in SQL statement "SELECT T_SYAIN_SEQ.NEXTVAL UNION[*] SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL UNION SELECT T_SYAIN_SEQ.NEXTVAL "; expected "identifier"; SQL statement:
+select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval union select t_syain_seq.nextval [42001-191]

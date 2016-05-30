@@ -1,4 +1,4 @@
-@(loginForm: Form[Login])
+@(loginForm: Form[t_syain])
 
 @import helper._
 
@@ -13,12 +13,12 @@
         }
 
         @form(routes.LoginController.authenticate()) {
-            @inputText(loginForm("username"), '_label -> "社員ID")
-            @inputPassword(loginForm("password"), '_label -> "パスワード")
+            @inputText(loginForm("syain_id"), '_label -> "社員ID")
+            @inputPassword(loginForm("syain_pass"), '_label -> "パスワード")
 
 
             <input type="submit" value="ログイン">
-            <input type="reset" value="リセット">
+            <input type="reset" value="クリア">
 
         }
 

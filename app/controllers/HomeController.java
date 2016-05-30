@@ -42,7 +42,7 @@ public class HomeController extends Controller {
     }
 
     public Result choice() {
-    	List<t_card> ChoiceList = t_card.find.all();
+    	List<t_card> ChoiceList = t_card.find.where().eq("card_flag","0").findList();
 
     	return ok(choice.render(ChoiceList));
     }
@@ -58,6 +58,25 @@ public class HomeController extends Controller {
 
     	return ok(choice_re.render(CheckList));
     }
+
+        public Result choice_re_touroku() {
+    	     	ArrayList<t_card> CheckList = new ArrayList<>();
+    	     	Map<String, String[]> params = request().body().asFormUrlEncoded();
+    	     	String[] checkId = params.get("card-id");
+
+    	     	for(String s:checkId){
+    	     		List<t_card> aaa = t_card.find.where().eq("card_id",s).findList();
+    	     		for(t_card card : aaa){
+    	     			card.card_flag = 1 ;
+    	     			card.update();
+    	 	    	}
+
+    	     	}
+    	     	//List<t_card> CheckList = t_card.find.where().eq("card_flag","1").findList();
+
+    	     	return redirect(routes.HomeController.choice());
+    	     }
+
 
         public Result thanks_card() {
 
@@ -114,21 +133,21 @@ public class HomeController extends Controller {
     	return ok(jusin.render("受信ボックス"));
     }
 
-        public Result keiziban(){
-        //List<t_card> taskList = t_card.find.all();
-        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,b.syain_name as jyusin,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id";
+    public Result keiziban(){
+        List<t_bumon> bumonList = t_bumon.find.all();
+        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id order by card_id desc";
         List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
-        return ok(keiziban.render(sqlRows));
+        return ok(keiziban.render(sqlRows,bumonList));
     }
     public Result syousai(Integer id){
         //t_card task = t_card.find.byId(id);
-        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,b.syain_name as jyusin,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id where card_id = :id";
+        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_id = :id";
         List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).setParameter("id",id).findList();
         return ok(syousai.render(sqlRows));
     }
     public Result daihyou(){
         //t_card task = t_card.find.byId(id);
-        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,b.syain_name as jyusin,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE()";
+        String sql = "select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag, card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE() order by card_id desc";
         List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
         return ok(daihyou.render(sqlRows));
     }

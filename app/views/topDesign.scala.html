@@ -26,7 +26,7 @@
 		@if(session.get("login") != null){
 			<a href="@routes.MainController.top()"><button type="button" class="btn btn-info btn-lg links">トップ</button></a>
 			<a href="@routes.HomeController.thanks_card()"><button type="button" class="btn btn-primary btn-lg links">感謝カード作成</button></a>
-			<a href="@routes.HomeController.keiziban()"><button type="button" class="btn btn-primary btn-lg links">掲示板</button></a>
+			<a href="@routes.HomeController.keiziban(0)"><button type="button" class="btn btn-primary btn-lg links">掲示板</button></a>
 			<a href="@routes.MainController.mypage"><button type="button" class="btn btn-primary btn-lg links">マイページ</button></a>
 			<a href="@routes.LoginController.logout()"><button type="button" class="btn btn-primary btn-lg links">ログアウト</button></a>
 			} else{

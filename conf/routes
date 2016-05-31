@@ -42,7 +42,7 @@ GET     /top         controllers.MainController.top
 
 GET     /mypage           controllers.MainController.mypage
 
-GET     /keiziban                      controllers.HomeController.keiziban
+GET     /keiziban/:page                controllers.HomeController.keiziban(page: Integer)
 GET     /syousai/:id                   controllers.HomeController.syousai(id:Int)
 GET     /daihyou                      controllers.HomeController.daihyou
 

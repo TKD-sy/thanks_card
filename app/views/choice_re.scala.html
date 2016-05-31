@@ -1,4 +1,4 @@
-@(checkList: ArrayList[t_card])
+@(checkList: ArrayList[t_card])(delList: ArrayList[t_card])(error: String)
 
 @topDesign("代表的な事例選択画面"){
 	<style type="text/css">
@@ -17,13 +17,15 @@
  		clear: both;
  		display: block;
  	}
+ 	hr{
+ 		border-top:3px solid #333;
+ 	}
 	</style>
 	<h1>代表的な事例選択画面</h1>
-	<div class="wrapper">
 		<form method="POST" action=@routes.HomeController.choice_re_touroku()>
 		<div class="clearfix">
 		@if(checkList.isEmpty()) {
-	       データは一件もありません
+	       @error
 	    } else {
 	        @for(check <- checkList) {
 				<table class="table1">
@@ -57,11 +59,52 @@
 
 	    }
 	    </div>
+	    <hr >
+	    <h1>削除選択画面</h1>
+	    <div class="clearfix">
+		@if(delList.isEmpty()) {
+	       @error
+	    } else {
+	        @for(del <- delList) {
+				<table class="table1">
+					<tbody>
+						<tr>
+							<td>送り主：</td>
+							<td colspan="2">@del.sousin_id</td>
+						</tr>
+						<tr>
+							<td>日付：</td>
+							<td colspan="2">@del.card_date</td>
+						</tr>
+						<tr>
+							<td>カテゴリ：</td>
+							<td colspan="2">@del.category_id</td>
+						</tr>
+						<tr>
+							<td>ヘルプ内容：</td>
+							<td colspan="2">@del.card_help</td>
+						</tr>
+						<tr>
+							<td>お礼のコメント：</td>
+							<td colspan="2">@del.card_comment</td>
+						</tr>
+						<tr>
+							<td  colspan="3" class="left size"><input type="hidden" name="del_card-id" value="@del.card_id"/></td>
+						</tr>
+					</tbody>
+				</table>
+	        }
+
+	    }
+	    </div>
  	    <br />
  	    <br />
- 	     <p>これらのカードを選択します。よろしいですか？</p>
+ 	    @if(checkList.isEmpty()&&delList.isEmpty()){
+ 	    <a href=@routes.HomeController.choice()><input type="button" value="戻る"></a>
+ 	    }else{
+ 	    <p>これらのカードを選択します。よろしいですか？</p>
  	     <input type="submit" value="はい"><input type="submit" value="いいえ">
+ 	    }
  	     </form>
-    </div>
 
 }

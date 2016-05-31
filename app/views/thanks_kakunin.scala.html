@@ -23,7 +23,7 @@
 <input type="hidden" name="jyusin_id" value="@card_inf.jyusin_id">
 　　　　　　　　　　　　　　
  <font1>感謝する人</font1>　<font2>@session.get("name")</font2>
- <input type="hidden" name="sousin_id" value="@session.get("id")"><br>
+ <input type="hidden" name="sousin_id" value="@session.get("login")"><br>
  	<br>
  	<br>
  	<br>
@@ -52,6 +52,10 @@
 <br>
 <br>
  <input type="button" value="　修正　" onClick="history.go(-1)">　　　　　　　
- <input type="submit" value="　送信　">
+ @if(anser =="入力された社員IDは登録されていません"){
+
+ }else{
+ 	 <input type="submit" value="　送信　">
+ }
 	</form>
 }

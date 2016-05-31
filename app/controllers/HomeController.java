@@ -131,7 +131,7 @@ public class HomeController extends Controller {
 		for (String s : chack_card_id) {
 			List<t_card> ans = t_card.find.where().eq("card_id", s).findList();
 			if (ans.isEmpty()) {
-				anser = "いない";
+				anser = "入力された社員IDは登録されていません";
 			} else {
 				String sql = "select syain_name  from t_syain where syain_id = :id;";
 				List<SqlRow> aaa = Ebean.createSqlQuery(sql).setParameter("id", s).findList();

@@ -1,8 +1,12 @@
 @import com.avaje.ebean.SqlRow;
 
-@(taskList: List[SqlRow],bumonList : List[t_bumon])
+@(taskList: List[SqlRow],bumonList : List[t_bumon],kazu: Int,asdf: Int)
 
-@topDesign("感謝カード - 代表的事例"){
+@designCss = {
+          <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/keiziban.css")">
+}
+
+@topDesign("感謝カード - 代表的事例",designCss){
 
 	<div class="keitop" style="height:100px;">
 	<h1>掲示板 - 代表的事例</h1>
@@ -11,7 +15,7 @@
 				<select name="bumon">
 					<option value="">すべて</option>
 					@if(bumonList.isEmpty()) {
-						部門はありません
+						<h2>部門はありません</h2>
 					} else {
 						@for(bumon <- bumonList) {
 							<option value="@bumon.bumon_id">@bumon.bumon_name</option>
@@ -46,4 +50,23 @@
 
 	</div>
 	<a href=@routes.HomeController.keiziban(0)><input type="button" class="modo" value="掲示板へ戻る"></a>
+	<ul class="pageNav01">
+		<li><a href="@routes.HomeController.daihyou(0)">&laquo; 最初へ</a></li>
+		<!-- 全体のページ分のリンク作る -->
+		@for(i <- asdf-3 to asdf+3) {
+			<!-- 今いるページを表すために -->
+			@if(i == asdf){
+				<li><span>@i</span></li>
+			}else{
+			<!-- ページの上限下限制限 -->
+				@if( i< 1 || i > kazu){
+
+				}else{
+					<li><a href="@routes.HomeController.daihyou(i-1)">@i</a></li>
+				}
+			}
+		}
+		<li><a href="@routes.HomeController.daihyou(kazu-1)">最後へ &raquo;</a></li>
+	</ul>
+
 }

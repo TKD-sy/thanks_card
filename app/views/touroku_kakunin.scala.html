@@ -1,6 +1,6 @@
-@(message: String)(table: t_syain)
+@(message: String)(table: t_syain);
 @import helper._
-@topDesign("内容確認"){
+@common("内容確認"){
 
 <h1>@message</h1>
 
@@ -24,20 +24,22 @@
        		<font>フリガナ</font>：@table.syain_kana
        		<input type="hidden" name="syain_kana" value=@table.syain_kana><br>
 
-            <font>生年月日</font>：@{"%tY%<tm%<td" format table.syain_birth}
+
+           <font>生年月日</font>：@{"%tY%<tm%<td" format table.syain_birth}
        		<input type="hidden" name="syain_birth" value=@{"%tF" format table.syain_birth}><br>
 
            <font>入社日</font>：@{"%tY%<tm%<td" format table.syain_nyuusyabi}
        		<input type="hidden" name="syain_nyuusyabi" value=@{"%tF" format table.syain_nyuusyabi}><br>
 
 
-       		<font>パスワード</font>：@table.syain_pass
-       		<input type="hidden" name="syain_pass" value=@table.syain_pass><br>
-
        		<font>性別</font>：@table.syain_sex
        		<input type="hidden" name="syain_sex" value=@table.syain_sex><br>
 
             <input type = "submit" value = "追加">
-  }
+            }
+
+            @form(routes.HomeController.new_touroku()) {
+            <input type="submit" value="　修正　">
+}
   </div>
 }

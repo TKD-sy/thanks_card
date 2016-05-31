@@ -18,14 +18,14 @@
 						}
 					}
 				</select>
-			日付別：
+			作成日：
 				<select name="example2">
 					<option value="サンプル1">選択肢のサンプル1</option>
 					<option value="サンプル2">選択肢のサンプル2</option>
 					<option value="サンプル3">選択肢のサンプル3</option>
 				</select>
 
-			<input type="submit" value="表示"><br>
+			<input class="keibota" type="submit" value="表示"><br>
 		</form>
 	</div>
 	<div class="clearfix">
@@ -37,7 +37,7 @@
 					<div class="keizi">
 						<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
 							<p>@task.getString("jyusin_bumon")　@task.getString("jyusin")</p>
-							<p>日付：@task.getDate("card_date")</p>
+							<p>作成日：@task.getDate("card_date")</p>
 							<p>ヘルプ内容：@task.getString("card_help")</p>
 						</a>
 					</div>
@@ -45,5 +45,5 @@
 		}
 
 	</div>
-	<a href=@routes.HomeController.keiziban()><input type="button" class="modo" value="掲示板へ戻る"></a>
+	<a href=@routes.HomeController.keiziban(0)><input type="button" class="modo" value="掲示板へ戻る"></a>
 }

@@ -1,6 +1,6 @@
 @import com.avaje.ebean.SqlRow;
 
-@(taskList: List[SqlRow],bumonList : List[t_bumon])
+@(taskList: List[SqlRow],bumonList : List[t_bumon],kazu: Int)
 
 @topDesign("感謝カード - 掲示板"){
 	<div class="keitop">
@@ -22,14 +22,14 @@
 					<option value="サンプル2">選択肢のサンプル2</option>
 					<option value="サンプル3">選択肢のサンプル3</option>
 				</select>
-				<input type="submit" value="表示">
+				<input class="keibota" type="submit" value="表示">
 			</p>
 		</form>
-		<form method="get" action="@routes.HomeController.daihyou()">
-			<p>今月の代表例：<input type="submit" value="抽出"></p>
-		</form>
 		<form method="get" action="">
-			<p>部門別関連度：<input type="submit" value="表示"></p>
+			<p>部門別関連度：<input class="keibota" type="submit" value="表示"></p>
+		</form>
+		<form method="get" action="@routes.HomeController.daihyou()">
+			<p>今月の代表例：<input class="keibota" type="submit" value="抽出"></p>
 		</form>
 	</div>
 	<div class="clearfix">
@@ -40,11 +40,25 @@
 				<div class="keizi">
 					<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
 						<p>@task.getString("jyusin_bumon")　@task.getString("jyusin")さんへ</p>
-						<p>日付：@task.getDate("card_date")</p>
-						<p>カテゴリ：@task.getString("category")</p>
+						<p>作成日：@task.getDate("card_date")</p>
+						<p>ヘルプ区分：@task.getString("category")</p>
 					</a>
 				</div>
 			}
 		}
+
 	</div>
+
+	<ul class="pageNav01">
+		<li><a href="@routes.HomeController.syousai(kazu-1)">&laquo; 前</a></li>
+		@for(i <- 1 to kazu) {
+			@if(i == kazu){
+				<li><span>@i</span></li>
+			}else{
+				<li><a href="@routes.HomeController.syousai(kazu)">@i</a></li>
+			}
+		}
+		<li><a href="@routes.HomeController.syousai(kazu+1)">次 &raquo;</a></li>
+	</ul>
+
 }

@@ -1,3 +1,24 @@
-.table{
-width:1000px;
+
+.table1{
+	float:left;
+	border:4px #66cdaa solid;
+	border-collapse: separate;
+	width:300px;
+	margin:10px;
 }
+
+.left{
+	text-align:right;
+}
+
+
+.clearfix:after {
+ 	content: "";
+ 	clear: both;
+ 	display: block;
+ }
+
+ .center{
+ 	margin: 0 auto;
+ 	width:1000px;
+ }

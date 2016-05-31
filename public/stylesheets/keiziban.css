@@ -49,9 +49,13 @@
 	width:160px;
 	margin-top:20px;
 	margin-bottom:15px;
+	background:#fef6c3;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
-input{
+.keibota{
 	width: 50px;
     height: 32px;
     background:#fef6c3;
@@ -66,4 +70,32 @@ input{
   height: 0;
   clear: both;
   visibility: hidden;
+}
+.pageNav01 {
+	margin: 0 0 10px;
+	padding: 10px 10px 5px;
+	background: #eee;
+	text-align: center;
+}
+
+.pageNav01 li {
+	display: inline;
+	margin: 0 2px;
+	padding: 0;
+}
+
+.pageNav01 li span,
+.pageNav01 li a {
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 1px 8px;
+	background: #fff;
+	border: 1px solid #aaa;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.pageNav01 li a:hover {
+	background: #eeeff7;
+	border-color: #00f;
 }

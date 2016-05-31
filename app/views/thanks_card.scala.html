@@ -3,14 +3,11 @@
 
 @topDesign("感謝カード作成画面"){
 <font>感謝カード作成画面</font>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
- <font1>日付</font1>
- <font1>YYYY/MM/DD</font1>
+
  	<br>
  	<br>
  	<br>
- <form method="post" action="@routes.HomeController.thanks_kakunin()">
- 　　　<font2>感謝する人の社員ID　<input  type="Search" name="syain_id" value="Search" onfocus="if (this.value == 'Search') { this.value='' }"
- onblur="if (this.value == '') { this.value='Search' }" />
+
 
 <form method="post" action="@routes.HomeController.thanks_kakunin()">
 　　　　　　　　　
@@ -49,6 +46,7 @@
 
  	　　　
 	<font1>ヘルプ区分</font1>　　
+	<font1>
 	<select name="category_id">
 		@if(categoryList.isEmpty()) {
 			ヘルプ区分は一件もありません
@@ -58,6 +56,7 @@
 			}
 		}
 	</select>
+	</font1>
  	　　　　　　　　　　　　　　　　　　　　　　　　
 
 	<input type="reset" value="　クリア　">　　　　　　　

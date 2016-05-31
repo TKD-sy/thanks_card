@@ -1,17 +1,17 @@
-@(title: String)(content: Html)
+@(title: String,designCss: Html = null)(content: Html)
+@* @(title: String,moreStyles: Seq[(String, String)] = Null)(content: Html) *@
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 	<title>@title</title>
 	<meta charset=UTF-8>
-
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/mypage.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/keiziban.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/thanks_card.css")">
+		@designCss
 </head>
 
 <body>

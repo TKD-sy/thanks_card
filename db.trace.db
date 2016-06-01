@@ -613,3 +613,23 @@ Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚�
 The connection was not closed by the application and is garbage collected [90018-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 18 more
+2016-06-01 11:20:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ "pass"
+Data conversion error converting "pass"; SQL statement:
+select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_birth c5, t0.syain_nyuusyabi c6, t0.syain_pass c7, t0.syain_sex c8 from t_syain t0 where t0.syain_id = ?  [22018-191]
+2016-06-01 11:22:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ "pass"
+Data conversion error converting "pass"; SQL statement:
+select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_birth c5, t0.syain_nyuusyabi c6, t0.syain_pass c7, t0.syain_sex c8 from t_syain t0 where t0.syain_id = ?  [22018-191]
+2016-06-01 11:55:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ 
+Data conversion error converting ; SQL statement:
+select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_birth c5, t0.syain_nyuusyabi c6, t0.syain_pass c7, t0.syain_sex c8 from t_syain t0 where t0.syain_id = ?  [22018-191]
+2016-06-01 11:55:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ "a"
+Data conversion error converting "a"; SQL statement:
+select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_birth c5, t0.syain_nyuusyabi c6, t0.syain_pass c7, t0.syain_sex c8 from t_syain t0 where t0.syain_id = ?  [22018-191]
+2016-06-01 12:02:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ "a"
+Data conversion error converting "a"; SQL statement:
+select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_birth c5, t0.syain_nyuusyabi c6, t0.syain_pass c7, t0.syain_sex c8 from t_syain t0 where t0.syain_id = ?  [22018-191]

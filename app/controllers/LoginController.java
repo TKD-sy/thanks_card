@@ -38,7 +38,7 @@ public class LoginController extends Controller{
     		t_syain login = form.get();
     		String syain_id = String.valueOf(login.syain_id);
         	session("login", syain_id);
-            List<SqlRow> Yaku = Ebean.createSqlQuery("SELECT * FROM t_syain where syain_id = "+session("login") +";").findList();
+        	List<SqlRow> Yaku = Ebean.createSqlQuery("SELECT * FROM t_syain where syain_id = "+session("login") + "AND syain_pass ='"+ login.syain_pass +"';" ).findList();
             SqlRow syainRecord = Yaku.get(0);
             String Yaku_ID = syainRecord.getString("yakusyoku_id");
             String name = syainRecord.getString("syain_name");

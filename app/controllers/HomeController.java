@@ -45,8 +45,17 @@ public class HomeController extends Controller {
 /*代表事例選択--------------------------------------------------------------------------------------------------------*/
 	public Result choice() {
 		List<t_card> ChoiceList = t_card.find.where().eq("card_flag", "0").findList();
+		String sql = "select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,"
+				+ "b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,"
+				+ "card_hensinflag,card_help,card_comment,card_date from t_card "
+				+ "inner join t_syain a on t_card.sousin_id = a.syain_id "
+				+ "inner join t_syain b on t_card.jyusin_id = b.syain_id "
+				+ "inner join t_category c on t_card.category_id = c.category_id "
+				+ "inner join t_bumon d on a.bumon_id = d.bumon_id "
+				+ "inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 0 order by card_flag desc";
+		List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
 
-		return ok(choice.render(ChoiceList));
+		return ok(choice.render(sqlRows));
 	}
 /*--------------------------------------------------------------------------------------------------------------------*/
 

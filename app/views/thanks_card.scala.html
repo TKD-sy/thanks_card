@@ -1,7 +1,11 @@
 @(categoryList : List[t_category])
 
+@designCss={
+	<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/thanks_card.css")">
+}
 
-@topDesign("感謝カード作成画面"){
+
+@topDesign("感謝カード作成画面",designCss){
 <font>感謝カード作成画面</font>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 
  	<br>
@@ -11,8 +15,7 @@
 
 <form method="post" action="@routes.HomeController.thanks_kakunin()">
 　　　　　　　　　
-	<font1>作成日入力　<input  type="Date" name="card_date" value="例 : 2014-05-26" onfocus="if (this.value == '例 : 2014-05-26') { this.value='' }"
-	onblur="if (this.value == '') { this.value='例 : 2014-05-26' }" />
+	<font1>作成日入力　<input  type="Date" name="card_date" value="" required>
 	</font1>
 	<font1>※必須入力項目</font1>
 
@@ -21,45 +24,61 @@
  	<br>
  	<br>
 　
-	<font1>感謝される人の社員ID　<input  type="Search" name="jyusin_id" value="Search" onfocus="if (this.value == 'Search') { this.value='' }"
-	onblur="if (this.value == '') { this.value='Search' }" />
+	<font1>感謝される人の社員ID　<input  type="number" name="jyusin_id" value="" required>
 	</font1>
 	<font1>※必須入力項目</font1>
 
- 	<br>
- 	<br>
- 	<br>
- 	<br>
-	<font2>ヘルプ内容</font2><br>
+	<br>
+	<br>
+	<br>
 
- 	<textarea name="card_help" rows="8" cols="93" placeholder="ここにヘルプ内容を記入してください。"></textarea>
-
- 	<br>
- 	<br>
-
-	<font2>感謝の言葉</font2><br>
- 	<textarea name="card_comment" rows="8" cols="93" placeholder="ここに感謝の言葉を記入してください。"></textarea>
-
- 	<br>
- 	<br>
- 	<br>
-
- 	　　　
+	　　　　　　　　　
 	<font1>ヘルプ区分</font1>　　
 	<font1>
 	<select name="category_id">
 		@if(categoryList.isEmpty()) {
 			ヘルプ区分は一件もありません
 		} else {
+		<option value="-1">選択してください。</option>
 			@for(category <- categoryList) {
 				<option value="@category.category_id">@category.category_name</option>
 			}
 		}
 	</select>
 	</font1>
+
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<br>
+	<font2>ヘルプ内容(200文字以内)</font2><br>
+
+ 	<textarea name="card_help" rows="8" cols="93" placeholder="ここにヘルプ内容を記入してください。" maxlength="200" onkeyup="ShowLength(value);" required></textarea>
+	<p id="inputlength">0文字</p>
+	<script type="text/javascript"><!--
+		function ShowLength( str ) {
+		document.getElementById("inputlength").innerHTML = str.length + "文字";
+		}// -->
+	</script>
+ 	<br>
+ 	<br>
+
+	<font2>感謝の言葉(200文字以内)</font2><br>
+ 	<textarea name="card_comment" rows="8" cols="93" placeholder="ここに感謝の言葉を記入してください。" maxlength="200" onkeyup="ShowLength1(value);" required></textarea>
+	<p id="inputlength1">0文字</p>
+<script type="text/javascript"><!--
+   function ShowLength1( str ) {
+      document.getElementById("inputlength1").innerHTML = str.length + "文字";
+   }
+// --></script>
+
+ 	<br>
+ 	<br>
+ 	<br>
+
  	　　　　　　　　　　　　　　　　　　　　　　　　
 
-	<input type="reset" value="　クリア　">　　　　　　　
-	<input type="submit" value="　確認　">
+	<input type="submit" value="　確認　">　　　　　　　
+	<input type="reset" value="　クリア　">
  </form>
 }

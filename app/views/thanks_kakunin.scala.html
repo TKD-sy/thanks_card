@@ -1,8 +1,10 @@
 @(card_inf: t_card ,categoryList: List[t_category],syainList: List[t_syain],anser:String)
 
+@designCss={
+	<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/thanks_kakunin.css")">
+}
 
-
-@topDesign("感謝カード仕上がり確認画面"){
+@topDesign("感謝カード仕上がり確認画面",designCss){
  <font>感謝カード仕上がり確認</font>
 
 
@@ -10,19 +12,22 @@
   <form method="post" action="@routes.HomeController.senddate()" >
 
  <font1>作成日：</font1>
- <!-- <font1>@card_inf.card_date</font1>
- <input type="hidden" name="card_date" value="@card_inf.card_date"> -->
- <font2>@{"%tY/%<tm/%<td" format card_inf.card_date}</font2>
+ <font1>@{"%tY/%<tm/%<td" format card_inf.card_date}</font1>
        		<input type="hidden" name="card_date" value=@{"%tF" format card_inf.card_date}>
  	<br>
  	<br>
  	<br>
  <form>
  <font1>感謝される人</font1>　
-<font1>@anser</font1>
+ 	@if(anser == "入力された社員IDは登録されていません"){
+			<b1>@anser</b1>
+	} else {
+			<font1>@anser</font1>
+	}
 <input type="hidden" name="jyusin_id" value="@card_inf.jyusin_id">
+
 　　　　　　　　　　　　　　
- <font1>感謝する人</font1>　<font2>@session.get("name")</font2>
+ <font1>感謝する人</font1>　<font1>@session.get("name")</font1>
  <input type="hidden" name="sousin_id" value="@session.get("login")"><br>
  	<br>
  	<br>
@@ -43,16 +48,22 @@
  	<br>
  	<br>
  <font1>ヘルプ区分</font1>　　
+	@if(card_inf.category_id == -1){
+	<b1>カテゴリーを選択してください。</b1>
+ 	}else{
 		@for(cate <- categoryList) {
     	    @if(cate.category_id == card_inf.category_id){
-    	    <font2>@cate.category_name</font2>
+
+    	    <font1>@cate.category_name</font1>
     	    <input type="hidden" name="category_id" value="@card_inf.category_id"><br>
 			}
   	  	}
+  	  }
 <br>
 <br>
  <input type="button" value="　修正　" onClick="history.go(-1)">　　　　　　　
- @if(anser =="入力された社員IDは登録されていません"){
+ @if(anser =="入力された社員IDは登録されていません" ||
+  card_inf.category_id == -1){
 
  }else{
  	 <input type="submit" value="　送信　">

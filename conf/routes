@@ -29,7 +29,6 @@ POST	/senddate					controllers.HomeController.senddate
 GET     /new_touroku                      controllers.HomeController.new_touroku
 POST     /touroku_kakunin                 controllers.HomeController.touroku_kakunin
 POST     /createData                      controllers.HomeController.createData
-GET     /change                           controllers.HomeController.change
 
 GET     /jusin                            controllers.HomeController.jusin
 GET     /sousin                           controllers.HomeController.sousin
@@ -43,8 +42,8 @@ GET     /top         controllers.MainController.top
 
 GET     /mypage           controllers.MainController.mypage
 
-GET     /keiziban/:page                controllers.HomeController.keiziban(page: Integer)
+GET     /keiziban/:page                controllers.HomeController.keiziban(page:Integer)
 GET     /syousai/:id                   controllers.HomeController.syousai(id:Int)
-GET     /daihyou                      controllers.HomeController.daihyou
+GET     /daihyou/:page                 controllers.HomeController.daihyou(page:Integer)
 
 

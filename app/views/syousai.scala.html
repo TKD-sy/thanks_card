@@ -2,7 +2,11 @@
 
 @(taskList: List[SqlRow])
 
-@topDesign("感謝カード - 掲示板詳細"){
+@designCss = {
+          <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/keiziban.css")">
+}
+
+@topDesign("感謝カード - 掲示板詳細",designCss){
 	<div class="clearfix">
 		<div class="syoutop">
 			<h1>掲示板詳細</h1>

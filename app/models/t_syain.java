@@ -23,10 +23,6 @@ public class t_syain extends Model {
 
 	    public String syain_kana;
 
-	    public Date syain_birth;
-
-	    public Date syain_nyuusyabi;
-
 	    public String syain_pass;
 
 	    public String syain_sex;

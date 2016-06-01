@@ -1,27 +1,21 @@
-@(message: String)
-@topDesign("社員情報変更"){
+@(message: String,syainList : List[t_syain])
+@common("社員ID選択"){
+	<h1>@message</h1>
+	<div class="top">
+	<form method="post" action="@routes.HomeController.index()">
+		<select name="syain">
+ 		@if(syainList.isEmpty()) {
+	       データは一件もありません
+	    } else {
+	        @for(syain <- syainList) {
+	        <option value="@syain.syain_id">@syain.syain_name</option>
+			
 
+	        }
 
-        <h1>@message</h1>
-        <div class="top">
-               <font>変更したい社員を選択</font>
-				  <select name="好きな果物">
-				    <option>りんご</option>
-				    <option>みかん</option>
-				    <option>バナナ</option>
-				    <option>パイナップル</option>
-				  </select>
-        <FORM name="myForm" method="POST" action="#">
- 				<font>社員ID</font><INPUT type="text">
- 				<font>パスワード</font><INPUT type="text">
- 				<font>入社日</font><INPUT type="text"><br>
- 				<font>社員名</font><INPUT type="text">
- 				<font>フリガナ</font><INPUT type="text">
- 				<font>生年月日</font><INPUT type="text"><br>
- 				<font>部署名</font><INPUT type="text">
- 				<font>部門名</font><INPUT type="text">
- 				<font>グループ名</font><INPUT type="text">
- 				<INPUT type="submit" value="追加">
-		</FORM>
-		</div>
-		}
+	    }
+		<input type="submit" value="決定" />
+</div>
+	}
+
+<input type="submit" name="syain_data" value="@syain.syain_id">決定</td>

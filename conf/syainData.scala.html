@@ -1,0 +1,39 @@
+@(message: String)(dataList: ArrayList[t_syain])(anser:String)
+@import helper._
+@common("表示"){
+
+<h1>@message</h1>
+<h2>@anser</h2>
+		<form method="POST" action=@routes.HomeController.hennkou_kakunin()>
+		<div class="clearfix">
+		@if(dataList.isEmpty()) {
+	       データは一件もありません
+	    } else {
+	        @for(syain <- dataList) {
+				<table class="table1">
+					<tbody>
+						<tr>
+							<td>部門ID：</td>
+							<td colspan="2">@syain.bumon_id</td>
+						</tr>
+						<tr>
+							<td>役職ID：</td>
+							<td colspan="2">@syain.yakusyoku_id</td>
+						</tr>
+						<tr>
+							<td>名前：</td>
+							<td colspan="2">@syain.syain_name</td>
+						</tr>
+						<tr>
+							<td>フリガナ：</td>
+							<td colspan="2">@syain.syain_kana</td>
+						</tr>
+
+						<tr>
+							<td  colspan="3" class="left size"><input type="submit" name="syain_data" value="@syain.syain_id">決定</td>
+						</tr>
+					</tbody>
+				</table>
+		}
+	}
+}

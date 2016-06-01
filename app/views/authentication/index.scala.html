@@ -6,11 +6,13 @@
 	<div class="tl_bun">
         <h1>ログインフォーム</h1>
 
-        @if(loginForm.hasGlobalErrors) {
+@*<!--         @if(loginForm.hasGlobalErrors) {
             <p class="error">
                 @loginForm.globalError.message
             </p>
-        }
+        } -->*@
+
+		<p class="error">@session.get("errors")</p>
 
         @form(routes.LoginController.authenticate()) {
             @inputText(loginForm("syain_id"), '_label -> "社員ID")

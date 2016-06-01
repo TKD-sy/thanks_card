@@ -2,49 +2,62 @@
 @topDesign("新入社員登録"){
 
 <h1>@message</h1>
-
-<div class="top">
-
-
-       <form method="post" action="@routes.HomeController.touroku_kakunin()">
-            <font>社員ID</font><input type="text" name="syain_id" required>
-			<font>部門</font>
-			<select name="bumon_id">
- 			@if(bumonList.isEmpty()) {
-	      	 データは一件もありません
-	    	} else {
-	        @for(bumon <- bumonList) {
-	        <option value="@bumon.bumon_id">@bumon.bumon_name</option>
-	        }
-	}
-			</select>
-
-	    	<font>役職</font>
-	    	<select name="yakusyoku_id">
- 			@if(yakusyokuList.isEmpty()) {
-	      	 データは一件もありません
-	    	} else {
-	        @for(yakusyoku <- yakusyokuList) {
-	        <option value="@yakusyoku.yakusyoku_id">@yakusyoku.yakusyoku_name</option>
-			}
-	}
-	</select>
-
-            <font>社員名</font><input type="text" name="syain_name" required>
-            <font>フリガナ</font><input type="text" name="syain_kana" required>
-            <font>パスワード</font><input type="text" name="syain_pass" required>
-           <font>性別</font>
-           <select name="syain_sex">
-					<OPTION value="男">男</OPTION>
-					<OPTION value="女">女</OPTION>
-			</select>
-
-
-
-        <input type="submit" value="追加" />
-        </form>
-</div>
-
+<form method="post" action="@routes.HomeController.touroku_kakunin()">
+	<table class="table table-condensed table-responsive">
+		<tbody>
+			<tr>
+				<td class="info">社員ID</td>
+				<td><input type="text" name="syain_id" required></td>
+			</tr>
+			<tr>
+				<td class="info">部門</td>
+				<td><select name="bumon_id">
+	 			@if(bumonList.isEmpty()) {
+		      	 データは一件もありません
+		    	} else {
+		        @for(bumon <- bumonList) {
+		        <option value="@bumon.bumon_id">@bumon.bumon_name</option>
+		        }
+		}
+				</select></td>
+			</tr>
+			<tr>
+				<td class="info">役職</td>
+				<td><select name="yakusyoku_id">
+	 			@if(yakusyokuList.isEmpty()) {
+		      	 データは一件もありません
+		    	} else {
+		        @for(yakusyoku <- yakusyokuList) {
+		        <option value="@yakusyoku.yakusyoku_id">@yakusyoku.yakusyoku_name</option>
+				}
+		}
+		</select></td>
+			</tr>
+			<tr>
+				<td class="info">社員名</td>
+				<td><input type="text" name="syain_name" required></td>
+			</tr>
+			<tr>
+				<td class="info">フリガナ</td>
+				<td><input type="text" name="syain_kana" required></td>
+			</tr>
+			<tr>
+				<td class="info">パスワード</td>
+				<td><input type="text" name="syain_pass" required></td>
+			</tr>
+			<tr>
+				<td class="info">性別</td>
+				<td><select name="syain_sex">
+						<OPTION value="男">男</OPTION>
+						<OPTION value="女">女</OPTION>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit" class="btn">追加</button></td>
+			</tr>
+		</tbody>
+	</table>
+ </form>
 }
 
 

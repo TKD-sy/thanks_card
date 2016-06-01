@@ -1,0 +1,116 @@
+2016-06-01 13:36:58 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "PLAY_EVOLUTIONS" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Table "PLAY_EVOLUTIONS" not found; SQL statement:
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-191]
+2016-06-01 13:37:02 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_BUMON" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_BUMON" already exists; SQL statement:
+create table t_bumon (
+bumon_id                      integer not null,
+bumon_name                    varchar(255),
+bumon_buname                  varchar(255),
+bumon_situname                varchar(255),
+bumon_kaname                  varchar(255),
+bumon_group                   varchar(255),
+constraint pk_t_bumon primary key (bumon_id)
+) [42101-191]
+2016-06-01 13:37:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_HENSIN" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_HENSIN" already exists; SQL statement:
+-- Project Name : 感謝カード
+-- Date/Time    : 2016/05/23 11:28:19
+-- Author       : SPL-023
+-- RDBMS Type   : PostgreSQL
+-- Application  : A5:SQL Mk-2
+
+-- 返信テーブル
+create table t_hensin (
+  hensin_id integer not null
+  , card_id integer not null
+  , hensin_date date not null
+  , hensin_title character varying not null
+  , hensin_naiyou character varying not null
+  , constraint t_hensin_PKC primary key (hensin_id)
+) [42101-191]
+2016-06-01 13:37:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CARD" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_CARD" already exists; SQL statement:
+-- 感謝カードテーブル
+create table t_card (
+  card_id integer not null
+  , category_id integer not null
+  , sousin_id integer not null
+  , jyusin_id integer not null
+  , hensin_id integer
+  , card_kidokuflag integer default 0 not null
+  , card_flag integer default 0 not null
+  , card_hensinflag integer default 0 not null
+  , card_help character varying not null
+  , card_comment character varying not null
+  , card_date date not null
+  , constraint t_card_PKC primary key (card_id)
+) [42101-191]
+2016-06-01 13:37:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_YAKUSYOKU" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_YAKUSYOKU" already exists; SQL statement:
+-- 役職テーブル
+create table t_yakusyoku (
+  yakusyoku_id integer not null
+  , yakusyoku_name character varying not null
+  , constraint t_yakusyoku_PKC primary key (yakusyoku_id)
+) [42101-191]
+2016-06-01 13:37:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_SCHEDULE" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_SCHEDULE" already exists; SQL statement:
+-- スケジュールテーブル
+create table t_schedule (
+  schedule_id integer not null
+  , syain_id integer not null
+  , schedule_memo character varying not null
+  , schedule_date date not null
+  , constraint t_schedule_PKC primary key (schedule_id)
+) [42101-191]
+2016-06-01 13:37:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_CATEGORY" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_CATEGORY" already exists; SQL statement:
+-- カテゴリテーブル
+create table t_category (
+  category_id integer not null
+  , category_name character varying not null
+  , constraint t_category_PKC primary key (category_id)
+) [42101-191]
+2016-06-01 13:37:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_BUMON" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_BUMON" already exists; SQL statement:
+-- 部門テーブル
+create table t_bumon (
+  bumon_id integer not null
+  , bumon_name character varying not null
+  , bumon_buname character varying
+  , bumon_situname character varying
+  , bumon_kaname character varying
+  , bumon_group character varying
+  , constraint t_bumon_PKC primary key (bumon_id)
+) [42101-191]
+2016-06-01 13:37:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ†ãƒ¼ãƒ–ãƒ« "T_SYAIN" ã�¯ã�™ã�§ã�«å­˜åœ¨ã�—ã�¾ã�™
+Table "T_SYAIN" already exists; SQL statement:
+-- 社員テーブル
+create table t_syain (
+  syain_id integer not null
+  , bumon_id integer not null
+  , yakusyoku_id integer not null
+  , syain_name character varying not null
+  , syain_kana character varying not null
+  , syain_pass character varying not null
+  , syain_sex character not null
+  , constraint t_syain_PKC primary key (syain_id)
+) [42101-191]
+2016-06-01 13:43:39 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ 
+Data conversion error converting ; SQL statement:
+select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_pass c5, t0.syain_sex c6 from t_syain t0 where t0.syain_id = ?  [22018-191]
+2016-06-01 13:43:42 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ 
+Data conversion error converting ; SQL statement:
+select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_pass c5, t0.syain_sex c6 from t_syain t0 where t0.syain_id = ?  [22018-191]

@@ -43,13 +43,18 @@ create table t_syain (
   yakusyoku_id                  integer,
   syain_name                    varchar(255),
   syain_kana                    varchar(255),
-  syain_birth                   timestamp,
-  syain_nyuusyabi               timestamp,
   syain_pass                    varchar(255),
   syain_sex                     varchar(255),
   constraint pk_t_syain primary key (syain_id)
 );
 create sequence t_syain_seq;
+
+create table t_yakusyoku (
+  yakusyoku_id                  integer not null,
+  yakusyoku_name                varchar(255),
+  constraint pk_t_yakusyoku primary key (yakusyoku_id)
+);
+create sequence t_yakusyoku_seq;
 
 
 # --- !Downs
@@ -65,4 +70,7 @@ drop sequence if exists t_category_seq;
 
 drop table if exists t_syain;
 drop sequence if exists t_syain_seq;
+
+drop table if exists t_yakusyoku;
+drop sequence if exists t_yakusyoku_seq;
 

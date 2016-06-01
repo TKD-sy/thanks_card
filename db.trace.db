@@ -613,3 +613,100 @@ Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚�
 The connection was not closed by the application and is garbage collected [90018-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 18 more
+2016-05-31 14:58:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,
+				B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,
+				CARD_HENSINFLAG,CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD 
+				INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID 
+				INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID
+				NNER[*] JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID 
+				INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID 
+			INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID ORDER BY CARD_ID DESC LIMIT 6 OFFSET 1*6 "
+Syntax error in SQL statement "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,
+				B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,
+				CARD_HENSINFLAG,CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD 
+				INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID 
+				INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID
+				NNER[*] JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID 
+				INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID 
+			INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID ORDER BY CARD_ID DESC LIMIT 6 OFFSET 1*6 "; SQL statement:
+select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,
+				b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,
+				card_hensinflag,card_help,card_comment,card_date from t_card 
+				inner join t_syain a on t_card.sousin_id = a.syain_id 
+				inner join t_syain b on t_card.jyusin_id = b.syain_id
+				nner join t_category c on t_card.category_id = c.category_id 
+				inner join t_bumon d on a.bumon_id = d.bumon_id 
+			inner join t_bumon e on b.bumon_id = e.bumon_id order by card_id desc limit 6 offset 1*6 [42000-191]
+2016-05-31 14:59:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: åˆ— "B.SYAIN_IDNNER" ã�Œè¦‹ã�¤ã�‹ã‚Šã�¾ã�›ã‚“
+Column "B.SYAIN_IDNNER" not found; SQL statement:
+select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag,card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_idnner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id order by card_id desc limit 6 offset 1*6 [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:180)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:130)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.command.dml.Select.prepare(Select.java:855)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-05-31 16:23:04 jdbc[295]: null
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more
+2016-05-31 16:50:17 jdbc[375]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESC LIMIT 2 OFFSET :[*]PEGE *2 "; æœŸå¾…ã�•ã‚Œã‚‹ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆ "NOT, EXISTS, INTERSECTS, SELECT, FROM"
+Syntax error in SQL statement "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESC LIMIT 2 OFFSET :[*]PEGE *2 "; expected "NOT, EXISTS, INTERSECTS, SELECT, FROM"; SQL statement:
+select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag, card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE() order by card_id desc limit 2 offset :pege *2 [42001-191]
+2016-05-31 16:51:08 jdbc[385]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "
+Syntax error in SQL statement "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "; SQL statement:
+select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag, card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE() order by card_id desclimit 2 offset ? *2 [42000-191]
+2016-05-31 16:54:51 jdbc[395]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "
+Syntax error in SQL statement "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "; SQL statement:
+select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag, card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE() order by card_id desclimit 2 offset ? *2 [42000-191]
+2016-05-31 16:56:17 jdbc[405]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "
+Syntax error in SQL statement "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "; SQL statement:
+select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag, card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE() order by card_id desclimit 2 offset ? *2 [42000-191]
+2016-05-31 16:59:01 jdbc[405]: exception
+org.h2.jdbc.JdbcSQLException: SQLã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã�«æ–‡æ³•ã‚¨ãƒ©ãƒ¼ã�Œã�‚ã‚Šã�¾ã�™ "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "
+Syntax error in SQL statement "SELECT CARD_ID,C.CATEGORY_NAME AS CATEGORY,A.SYAIN_NAME AS SOUSIN,D.BUMON_NAME AS SOUSIN_BUMON,B.SYAIN_NAME AS JYUSIN,E.BUMON_NAME AS JYUSIN_BUMON,HENSIN_ID,CARD_KIDOKUFLAG,CARD_FLAG,CARD_HENSINFLAG, CARD_HELP,CARD_COMMENT,CARD_DATE FROM T_CARD INNER JOIN T_SYAIN A ON T_CARD.SOUSIN_ID = A.SYAIN_ID INNER JOIN T_SYAIN B ON T_CARD.JYUSIN_ID = B.SYAIN_ID INNER JOIN T_CATEGORY C ON T_CARD.CATEGORY_ID = C.CATEGORY_ID INNER JOIN T_BUMON D ON A.BUMON_ID = D.BUMON_ID INNER JOIN T_BUMON E ON B.BUMON_ID = E.BUMON_ID WHERE CARD_FLAG = 1 AND CARD_DATE BETWEEN GETDATE() - 31 AND GETDATE() ORDER BY CARD_ID DESCLIMIT[*] 2 OFFSET ? *2 "; SQL statement:
+select card_id,c.category_name as category,a.syain_name as sousin,d.bumon_name as sousin_bumon,b.syain_name as jyusin,e.bumon_name as jyusin_bumon,hensin_id,card_kidokuflag,card_flag,card_hensinflag, card_help,card_comment,card_date from t_card inner join t_syain a on t_card.sousin_id = a.syain_id inner join t_syain b on t_card.jyusin_id = b.syain_id inner join t_category c on t_card.category_id = c.category_id inner join t_bumon d on a.bumon_id = d.bumon_id inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 1 and card_date between GETDATE() - 31 and GETDATE() order by card_id desclimit 2 offset ? *2 [42000-191]

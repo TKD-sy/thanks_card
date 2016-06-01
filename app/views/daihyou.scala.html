@@ -4,6 +4,7 @@
 
 @designCss = {
           <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/keiziban.css")">
+          <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/choice.css")">
 }
 
 @topDesign("感謝カード - 代表的事例",designCss){
@@ -32,19 +33,29 @@
 			<input class="keibota" type="submit" value="表示"><br>
 		</form>
 	</div>
-	<div class="clearfix">
+	<div class="clearfix center">
 		@if(taskList.isEmpty()) {
-			<h2>選択された代表的事例は一件もありません</h2>
-
+			<h2>感謝カードは一件もありません</h2>
 		} else {
 			@for(task <- taskList) {
-					<div class="keizi">
-						<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
-							<p>@task.getString("jyusin_bumon")　@task.getString("jyusin")</p>
-							<p>作成日：@task.getDate("card_date")</p>
-							<p>ヘルプ内容：@task.getString("card_help")</p>
-						</a>
-					</div>
+				<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
+					<table class="table1 table table-condensed table-responsive">
+						<tbody>
+							<tr>
+								<td colspan="2" class="info">@task.getString("jyusin_bumon")</td>
+								<td>@task.getString("jyusin")さんへ</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="info">作成日：</td>
+								<td>@task.getDate("card_date")</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="info">ヘルプ内容：</td>
+								<td>@task.getString("card_help")</td>
+							</tr>
+						</tbody>
+					</table>
+				</a>
 			}
 		}
 

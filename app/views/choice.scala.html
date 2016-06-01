@@ -1,11 +1,13 @@
-@(choiceList: List[t_card])
+@import com.avaje.ebean.SqlRow;
+
+@(choiceList: List[SqlRow])
 @designCss = {
           <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/choice.css")">
 }
 
-@topDesign("代表的な事例選択画面",designCss){
+@topDesign("感謝カード編集画面",designCss){
 
-	<h1>代表的な事例選択画面</h1>
+	<h1>感謝カード編集画面</h1>
 	<div class="wrapper">
 
 	<form method="POST" action=@routes.HomeController.choice_re()>
@@ -18,28 +20,28 @@
 					<tbody>
 						<tr>
 							<td class="info">送り主：</td>
-							<td colspan="2">@choice.sousin_id</td>
+							<td colspan="2">@choice.getString("sousin")</td>
 						</tr>
 						<tr>
-							<td class="info">日付：</td>
-							<td colspan="2">@choice.card_date</td>
+							<td class="info">作成日：</td>
+							<td colspan="2">@choice.getDate("card_date")</td>
 						</tr>
 						<tr>
 							<td class="info">カテゴリ：</td>
-							<td colspan="2">@choice.category_id</td>
+							<td colspan="2">@choice.getString("category")</td>
 						</tr>
 						<tr>
 							<td class="info">ヘルプ内容：</td>
-							<td colspan="2">@choice.card_help</td>
+							<td colspan="2">@choice.getString("card_help")</td>
 						</tr>
 						<tr>
 							<td class="info">お礼のコメント：</td>
-							<td colspan="2">@choice.card_comment</td>
+							<td colspan="2">@choice.getString("card_comment")</td>
 						</tr>
 						<tr>
 							<td  colspan="3" class="left size">
-								<input type="checkbox" name="chack-card" value="@choice.card_id">事例の選択
-								<input type="checkbox" name="del-card" value="@choice.card_id">削除
+								<input type="checkbox" name="chack-card" value="@choice.getInteger("card_id")">事例の選択
+								<input type="checkbox" name="del-card" value="@choice.getInteger("card_id")">削除
 							</td>
 						</tr>
 					</tbody>

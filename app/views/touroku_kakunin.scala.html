@@ -1,40 +1,56 @@
 @(message: String)(table: t_syain);
 @import helper._
-@common("内容確認"){
+@topDesign("内容確認"){
 
-<h1>@message</h1>
-
-<div class="top">
-
- @form(routes.HomeController.createData()) {
-
-
-       		<font>社員ID</font>：@table.syain_id
-       		<input type="hidden" name="syain_id" value=@table.syain_id><br>
-
-       		<font>部門ID</font>：@table.bumon_id
-       		<input type="hidden" name="bumon_id" value=@table.bumon_id><br>
-
-       		<font>役職ID</font>：@table.yakusyoku_id
-       		<input type="hidden" name="yakusyoku_id" value=@table.yakusyoku_id><br>
-
-            <font>社員名</font>：@table.syain_name
-       		<input type="hidden" name="syain_name" value=@table.syain_name><br>
-
-       		<font>フリガナ</font>：@table.syain_kana
-       		<input type="hidden" name="syain_kana" value=@table.syain_kana><br>
-
-			<font>パスワード</font>：@table.syain_pass
-       		<input type="hidden" name="syain_pass" value=@table.syain_pass><br>
-
-       		<font>性別</font>：@table.syain_sex
-       		<input type="hidden" name="syain_sex" value=@table.syain_sex><br>
-
-            <input type = "submit" value = "追加">
-            }
-
-            @form(routes.HomeController.new_touroku()) {
-            <input type="submit" value="　修正　">
-}
-  </div>
+	<h1>@message</h1>
+	<div class="center">
+		 @form(routes.HomeController.createData()) {
+			<table class="table table-condensed table-responsive table2">
+				<tbody>
+					<tr>
+						<td class="info">社員ID：</td>
+						<td>@table.syain_id</td>
+						<input type="hidden" name="syain_id" value=@table.syain_id>
+					</tr>
+					<tr>
+						<td class="info">部門ID：</td>
+						<td>@table.bumon_id</td>
+						<input type="hidden" name="bumon_id" value=@table.bumon_id>
+					</tr>
+					<tr>
+						<td class="info">役職ID：</td>
+						<td>@table.yakusyoku_id</td>
+						<input type="hidden" name="yakusyoku_id" value=@table.yakusyoku_id>
+					</tr>
+					<tr>
+						<td class="info">社員名：</td>
+						<td>@table.syain_name</td>
+						<input type="hidden" name="syain_name" value=@table.syain_name>
+					</tr>
+					<tr>
+						<td class="info">フリガナ：</td>
+						<td>@table.syain_kana</td>
+						<input type="hidden" name="syain_kana" value=@table.syain_kana>
+					</tr>
+					<tr>
+						<td class="info">パスワード：</td>
+						<td>@table.syain_pass</td>
+						<input type="hidden" name="syain_pass" value=@table.syain_pass>
+					</tr>
+					<tr>
+						<td class="info">性別：</td>
+						<td>@table.syain_sex</td>
+						<input type="hidden" name="syain_sex" value=@table.syain_sex>
+					</tr>
+					<tr>
+						<td><button type = "submit" value = "追加" class="btn">追加</button></td>
+						<td>@form(routes.HomeController.new_touroku()) {
+								<button type="submit" value="修正 "class="btn">修正</button>
+							}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		}
+	</div>
 }

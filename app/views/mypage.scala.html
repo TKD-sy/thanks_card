@@ -1,5 +1,11 @@
+@import com.avaje.ebean.SqlRow;
+
+@(taskList: List[SqlRow],kazu: Int,asdf: Int)
+
 @designCss = {
           <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/mypage.css")">
+          <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/keiziban.css")">
+          <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/choice.css")">
 }
 
 @topDesign("マイページ",designCss){
@@ -7,20 +13,63 @@
 
 
 	<div class="menu">
-			<a href="@routes.HomeController.jusin()"><button type="button" class="btn btn-primary btn-lg myp_links">受信ボックス</button></a><br>
-			<a href="@routes.HomeController.sousin()"><button type="button" class="btn btn-primary btn-lg myp_links">送信ボックス</button></a><br>
-			<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">ひとことメモ</button></a><br>
+		<a href="@routes.HomeController.jusin()"><button type="button" class="btn btn-primary btn-lg myp_links">受信ボックス</button></a><br>
+		<a href="@routes.HomeController.sousin()"><button type="button" class="btn btn-primary btn-lg myp_links">送信ボックス</button></a><br>
+		<a href="#"><button type="button" class="btn btn-primary btn-lg myp_links">ひとことメモ</button></a><br>
 
-			@if(session.get("yakusyoku") != "3"){
-					<a href="@routes.HomeController.new_touroku()"><button type="button" class="btn btn-primary btn-lg myp_links">社員追加</button></a><br>
-
-					<a href="@routes.HomeController.choice()"><button type="button" class="btn btn-primary btn-lg myp_links">代表事例選択</button></a><br>
-				}
-
-
+		@if(session.get("yakusyoku") != "3"){
+			<a href="@routes.HomeController.new_touroku()"><button type="button" class="btn btn-primary btn-lg myp_links">社員追加</button></a><br>
+			<a href="@routes.HomeController.choice()"><button type="button" class="btn btn-primary btn-lg myp_links">代表事例選択</button></a><br>
+		}
 	</div>
 
 	<div class="mypageTop">
-	<h2>@session.get("name")さん、ようこそ！</h2><br>
+		<h2>@session.get("name")さんへの感謝カード一覧</h2><br>
+		<div class="clearfix center">
+			@if(taskList.isEmpty()) {
+				<h2>感謝カードは一件もありません</h2>
+			} else {
+				@for(task <- taskList) {
+					<a href="@routes.HomeController.syousai(task.getInteger("card_id"))">
+						<table class="table1 table table-condensed table-responsive">
+							<tbody>
+								<tr>
+									<td colspan="2" class="info">@task.getString("jyusin_bumon")</td>
+									<td class="haike">@task.getString("jyusin")さんへ</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="info">作成日：</td>
+									<td class="haike">@task.getDate("card_date")</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="info">ヘルプ区分：</td>
+									<td class="haike">@task.getString("category")</td>
+								</tr>
+							</tbody>
+						</table>
+					</a>
+				}
+			}
+
+		</div><br>
+		<ul class="pageNav01 center">
+		<li><a href="@routes.MainController.Mypage(0)">&laquo; 最初へ</a></li>
+		<!-- 全体のページ分のリンク作る -->
+		@for(i <- asdf-3 to asdf+3) {
+			<!-- 今いるページを表すために -->
+			@if(i == asdf){
+				<li><span>@i</span></li>
+			}else{
+			<!-- ページの上限下限制限 -->
+				@if( i< 1 || i > kazu){
+
+				}else{
+					<li><a href="@routes.MainController.Mypage(i-1)">@i</a></li>
+				}
+			}
+		}
+		<li><a href="@routes.MainController.Mypage(kazu-1)">最後へ &raquo;</a></li>
+	</ul>
 	</div>
+
 }

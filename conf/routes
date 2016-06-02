@@ -40,7 +40,8 @@ GET     /logout      controllers.LoginController.logout
 GET     /top         controllers.MainController.top
 
 
-GET     /mypage           controllers.MainController.mypage
+GET     /mypa           controllers.MainController.mypa
+GET     /mypage/:page           controllers.MainController.Mypage(page:Integer)
 
 GET     /keiziban/:page                controllers.HomeController.keiziban(page:Integer)
 GET     /syousai/:id                   controllers.HomeController.syousai(id:Int)

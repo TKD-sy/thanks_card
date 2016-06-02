@@ -114,3 +114,28 @@ select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.
 org.h2.jdbc.JdbcSQLException: ãƒ‡ãƒ¼ã‚¿å¤‰æ�›ä¸­ã�«ã‚¨ãƒ©ãƒ¼ã�Œç™ºç”Ÿã�—ã�¾ã�—ã�Ÿ 
 Data conversion error converting ; SQL statement:
 select t0.syain_id c0, t0.bumon_id c1, t0.yakusyoku_id c2, t0.syain_name c3, t0.syain_kana c4, t0.syain_pass c5, t0.syain_sex c6 from t_syain t0 where t0.syain_id = ?  [22018-191]
+2016-06-02 11:17:05 jdbc[115]: null
+org.h2.message.DbException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:314)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:171)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:436)
+	at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:65)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:567)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:560)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã�«ã‚ˆã‚Šé–‰ã�˜ã‚‰ã‚Œã�¦ã�„ã�ªã�„æŽ¥ç¶šã�Œã‚¬ãƒ™ãƒ¼ã‚¸ã‚³ãƒ¬ã‚¯ãƒˆã�•ã‚Œã�¾ã�—ã�Ÿ
+The connection was not closed by the application and is garbage collected [90018-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more

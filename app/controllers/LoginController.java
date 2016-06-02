@@ -24,7 +24,7 @@ public class LoginController extends Controller{
 	    //セッションにログイン情報が入ってた場合、マイページに飛ぶ。
 	public Result index(){
 		if(session("login") != null){
-        	return redirect(routes.MainController.mypage());
+        	return redirect(routes.MainController.mypa());
 		}
 		return ok(index.render(formFactory.form(t_syain.class)));
 	}
@@ -62,7 +62,7 @@ public class LoginController extends Controller{
 
             session("yakusyoku",Yaku_ID);
             session("name",name);
-            return redirect(routes.MainController.mypage());
+            return redirect(routes.MainController.mypa());
 	        } else{
 	        	session().clear();
 	        	String i = "※社員IDかパスワードが間違っています";

@@ -203,41 +203,35 @@ public class HomeController extends Controller {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 /*社員情報の変更------------------------------------------------------------------------------------------------------*/
-	 /*public Result change() {
+	 public Result change() {
 	    	List<t_syain> syainList = t_syain.find.all();
 
 
-	        return ok(change.render("情報表示",syainList));
-	 }*/
+	        return ok(change.render("社員選択",syainList));
+	 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 /*指定した社員のデータ表示--------------------------------------------------------------------------------------------*/
-	/* public Result syainData() {
-		 String anser = "";
-	    	ArrayList<t_syain> dataList = new ArrayList<>();
-	    	Map<String, String[]> params = request().body().asFormUrlEncoded();
-	    	String[] dataMap = params.get("syain_data");
-	    	for(String s:dataMap){
-	    		List<t_card> ans = t_card.find.where().eq("card_id", s).findList();
-				if (ans.isEmpty()) {
-					anser = "入力された社員IDは登録されていません";
-				} else {
-	    		// dataList.addAll(t_syain.find.where().eq("syain_id",s).findList());
-		 String sql = "select *  from t_syain where syain_id = :id;";
-			List<SqlRow> aaa = Ebean.createSqlQuery(sql).setParameter("id", s).findList();
-			SqlRow direct = aaa.get(0);
-			anser = (String) direct.get("*");
-				}
-	    	}
-	    	return ok(syainData.render("社員データ表示",dataList,anser));
-	    }*/
+	 public Result syainData() {
+		 t_syain sd = formFactory.form(t_syain.class).bindFromRequest().get();
+		 List<t_bumon> bumonList = t_bumon.find.all();
+		 List<t_yakusyoku> yakusyokuList = t_yakusyoku.find.all();
+		 t_syain data  = t_syain.find.byId(sd.syain_id);
+
+	    	return ok(syainData.render("社員データ表示",data,bumonList,yakusyokuList));
+	    }
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 /*変更内容確認--------------------------------------------------------------------------------------------------------*/
-  /* public Result hennkou_kakunin(){
-    	return ok(hennkou_kakunin.render());
-    }*/
+   public Result hennkou_kakunin(){
+
+	   t_syain Data = formFactory.form(t_syain.class).bindFromRequest().get();
+
+		Data.update();
+		return ok(hennkou_kakunin.render());
+
+    }
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 /*送信ボックス--------------------------------------------------------------------------------------------------------*/

@@ -1,0 +1,75 @@
+@import com.avaje.ebean.SqlRow;
+@(message: String)(syain: t_syain)(bumonList : List[t_bumon])(yakusyokuList : List[t_yakusyoku]);
+@topDesign("選択社員のデータ表示"){
+	<h1>@message</h1>
+
+	<form method="post" action="@routes.HomeController.hennkou_kakunin()">
+		<table class="table table-condensed table-responsive">
+			<tbody>
+				<input type="hidden" name="syain_id" value=@syain.syain_id>
+				<tr>
+					@for(bumon <- bumonList) {
+						@if(bumon.bumon_id == syain.bumon_id) {
+							<td class="info">部門 ： @bumon.bumon_name</td>
+						}
+					}
+					<td>
+						<select name="bumon_id">
+							@if(bumonList.isEmpty()) {
+								データは一件もありません
+							} else {
+								@for(bumon <- bumonList) {
+									@if(bumon.bumon_id == syain.bumon_id) {
+										<option value="@bumon.bumon_id"selected>@bumon.bumon_name</option>
+									}else{
+										<option value="@bumon.bumon_id">@bumon.bumon_name</option>
+									}
+								}
+							}
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					@for(yakusyoku <- yakusyokuList) {
+						@if(yakusyoku.yakusyoku_id == syain.yakusyoku_id) {
+							<td class="info">役職： @yakusyoku.yakusyoku_name</td>
+						}
+					}
+					<td>
+						<select name="yakusyoku_id">
+							@if(yakusyokuList.isEmpty()) {
+								データは一件もありません
+					 		} else {
+								@for(yakusyoku <- yakusyokuList) {
+									@if(yakusyoku.yakusyoku_id == syain.yakusyoku_id) {
+										option value="@yakusyoku.yakusyoku_id"selected>@yakusyoku.yakusyoku_name</option>
+									}else{
+										<option value="@yakusyoku.yakusyoku_id">@yakusyoku.yakusyoku_name</option>
+									}
+								}
+							}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="info">社員名： @syain.syain_name</td>
+				 	<td><input type="text" name="syain_name" value=@syain.syain_name></td>
+				</tr>
+				<tr>
+					<td class="info">フリガナ： @syain.syain_kana</td>
+					<td><input type="text" name="syain_kana" value=@syain.syain_kana></td>
+				</tr>
+				<tr>
+					<td class="info">パスワード： @syain.syain_pass</td>
+					<td><input type="text" name="syain_pass" value=@syain.syain_pass></td>
+				</tr>
+				<tr>
+					<td><input type = "submit" value = "変更"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+
+}

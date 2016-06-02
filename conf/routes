@@ -29,6 +29,9 @@ POST	/senddate					controllers.HomeController.senddate
 GET     /new_touroku                      controllers.HomeController.new_touroku
 POST     /touroku_kakunin                 controllers.HomeController.touroku_kakunin
 POST     /createData                      controllers.HomeController.createData
+GET     /change                           controllers.HomeController.change
+POST     /syainData                       controllers.HomeController.syainData
+POST     /hennkou_kakunin                 controllers.HomeController.hennkou_kakunin
 
 GET     /jusin                            controllers.HomeController.jusin
 GET     /sousin                           controllers.HomeController.sousin

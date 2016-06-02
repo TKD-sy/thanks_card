@@ -140,7 +140,7 @@ public class HomeController extends Controller {
 		Map<String, String[]> params = request().body().asFormUrlEncoded();
 		String[] chack_card_id = params.get("jyusin_id");
 		for (String s : chack_card_id) {
-			List<t_card> ans = t_card.find.where().eq("card_id", s).findList();
+			List<t_syain> ans = t_syain.find.where().eq("syain_id", s).findList();
 			if (ans.isEmpty()) {
 				anser = "入力された社員IDは登録されていません";
 			} else {
@@ -160,7 +160,10 @@ public class HomeController extends Controller {
 
 		t_card newCard = formFactory.form(t_card.class).bindFromRequest().get();
 		t_card dateCard = new t_card();
+		List<t_card> card = t_card.find.all();
 
+
+		dateCard.card_id = card.size()+1;
 		dateCard.category_id = newCard.category_id;
 		dateCard.sousin_id = newCard.sousin_id;
 		dateCard.jyusin_id = newCard.jyusin_id;

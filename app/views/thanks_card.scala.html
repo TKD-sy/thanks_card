@@ -2,24 +2,10 @@
 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/thanks_card.css")">
 }
 @topDesign("感謝カード作成画面",designCss){
-	<script type="text/javascript">
-	<!--
-		function ShowLength(str) {
-			document.getElementById("inputlength").innerHTML = str.length
-					+ "文字";
-		}
-	// -->
-	</script>
 
 
-	<script type="text/javascript">
-	<!--
-		function ShowLength1(str) {
-			document.getElementById("inputlength1").innerHTML = str.length
-					+ "文字";
-		}
-	// -->
-	</script>
+
+
 	<h1>感謝カード作成画面</h1>
 	<form method="post" action="@routes.HomeController.thanks_kakunin()">
 		<table class="table table-condensed table-responsive">
@@ -27,10 +13,26 @@
 				<tr>
 					<td class="info">作成日入力</td>
 					<td><input type="Date" name="card_date" value=""required> ※必須入力項目</td>
+					<script type="text/javascript">
+	<!--
+		function ShowLength(str) {
+			document.getElementById("inputlength").innerHTML = str.length
+					+ "文字";
+		}
+	// -->
+	</script>
 				</tr>
 				<tr>
 					<td class="info">感謝される人の社員ID</td>
 					<td><input type="number" name="jyusin_id"value="" required>※必須入力項目</td>
+					<script type="text/javascript">
+	<!--
+		function ShowLength1(str) {
+			document.getElementById("inputlength1").innerHTML = str.length
+					+ "文字";
+		}
+	// -->
+	</script>
 				</tr>
 				<tr>
 					<td class="info">ヘルプ区分</td>
@@ -57,8 +59,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="submit" class="btn">確認</button>
-						<button type="reset" class="btn">クリア</button>
+						<input type="submit" value="確認" class="btn">
+						<input type="reset" value="クリア" class="btn">
 					</td>
 				</tr>
 			</tbody>

@@ -3,7 +3,8 @@
 	float:left;
 	border:4px #66cdaa solid;
 	border-collapse: separate;
-	width:300px;
+	width:400px;
+	height:200px;
 	margin:10px;
 }
 
@@ -20,5 +21,13 @@
 
  .center{
  	margin: 0 auto;
- 	width:1000px;
+ 	width:1300px;
  }
+
+ .span{
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis; /* Opera9,10‘Î‰ž */
+}

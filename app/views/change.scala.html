@@ -1,4 +1,4 @@
-@(message: String)(syainList : List[t_syain]))
+@(message: String)(syainList : List[t_syain])
 @topDesign("社員ID選択"){
 <h1>@message</h1>
 			<form method="post" action="@routes.HomeController.syainData()">
@@ -12,9 +12,7 @@
 		        }
 		}
 				</select></td>
-				<INPUT type="submit" name="syain_id" value="選択">
-
-
+				<button type="submit" name="syain_id" class="btn">選択</button>
 
 			</form>
 

@@ -61,12 +61,12 @@
   	  }
 <br>
 <br>
- <input type="button" value="　修正　" onClick="history.go(-1)">　　　　　　　
+	 <button type="submit" class="btn" >送信</button>　　　　　　　
  @if(anser =="入力された社員IDは登録されていません" ||
   card_inf.category_id == -1){
 
  }else{
- 	 <input type="submit" value="　送信　">
+ <button type="submit" class="btn" onClick="history.go(-1)">修正</button>
  }
 	</form>
 }

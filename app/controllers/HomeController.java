@@ -54,7 +54,7 @@ public class HomeController extends Controller {
 				+ "inner join t_syain b on t_card.jyusin_id = b.syain_id "
 				+ "inner join t_category c on t_card.category_id = c.category_id "
 				+ "inner join t_bumon d on a.bumon_id = d.bumon_id "
-				+ "inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 0 order by card_flag desc";
+				+ "inner join t_bumon e on b.bumon_id = e.bumon_id where card_flag = 0 and card_date between GETDATE() - 31 and GETDATE() order by card_flag desc";
 		List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
 
 		return ok(choice.render(sqlRows));
